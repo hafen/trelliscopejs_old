@@ -1,3 +1,127 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:">Trelliscope Viewer</a>
+      <div class="left-icons">
+        <ul>
+          <a data-toggle="modal" data-target="#displayInfoModal" href="javascript:"><li><i class="icon-file-info"></i></li></a>
+          <span id="headerDisplayNameOutput" class="shiny-text-output"></span>
+        </ul>
+      </div>
+      <div class="center-icons shiny-template-output" id="panelPageNavOutput" data-post-render="panelPageNavOutputPostRender">
+      </div>
+      <div class="right-icons">
+        <ul>
+          <a data-toggle="modal" data-target="#userModal" href="javascript:"><li><i class="icon-user"></i></li></a>
+          <a data-toggle="modal" data-target="#openModal" href="javascript:"><li><i class="icon-folder-open"></i></li></a>
+          <a data-toggle="modal" data-target="#aboutModal" href="javascript:"><li><i class="icon-info-circle"></i></li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-{{outlet}}
+<!-- Begin page content -->
+<div class="container">
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <div id="logo">
+        <img src="assets/images/logo.svg">
+      </div>
+      <div class="list-group list-group-sidebar">
+        <a href="javascript:" class="list-group-item active list-group-item-primary list-group-item-short">
+        <span class="list-group-header">View Options</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="panel-layout" id="panel-layout-nav-link">
+          <i class="icon-th"></i>
+          <span class="list-group-text">Panel Layout</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="panel-function" id="panel-function-nav-link">
+          <i class="icon-panel-edit"></i>
+          <span class="list-group-text">Panel Function</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="panel-labels" id="panel-labels-nav-link">
+           <!-- data-action="panelLabelListSetFromExposedState"> -->
+          <i class="icon-cog-list"></i>
+          <span class="list-group-text">Panel Labels</span>
+        </a>
+        <a href="javascript:" class="list-group-item last-item" data-divlink="add-related-display" id="add-related-display-nav-link" data-action="showRelatedLayoutControls">
+          <i class="icon-plus-square-o"></i>
+          <span class="list-group-text">&nbsp;Related Displays</span>
+        </a>
+        <a href="javascript:" class="list-group-item active list-group-item-primary list-group-item-short">
+          <span class="list-group-header">Cognostics</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="active-cog" id="active-cog-nav-link">
+           <!-- data-action="cogTableSetFromExposedState"> -->
+          <i class="icon-active-cog"></i>
+          <span class="list-group-text">Active Cognostics</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="cog-table-sort-filter" id="cog-table-sort-filter-nav-link">
+           <!-- data-action="cogTableSetFromExposedState"> -->
+          <i class="icon-sort-filter"></i>
+          <span class="list-group-text">Table Sort / Filter</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="univar-filter" id="univar-filter-nav-link">
+           <!-- data-action="univarFilterSetFromExposedState"> -->
+          <i class="icon-bars"></i>
+          <span class="list-group-text">Univariate Filter</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="bivar-filter" id="bivar-filter-nav-link">
+           <!-- data-action="bivarFilterSetFromExposedState"> -->
+          <i class="icon-stats"></i>
+          <span class="list-group-text">Bivariate Filter</span>
+        </a>
+        <a href="javascript:" class="list-group-item" data-divlink="multivar-filter" id="multivar-filter-nav-link">
+          <i class="icon-multivar"></i>
+          <span class="list-group-text">Multivariate Filter</span>
+        </a>
+        <a href="javascript:" class="list-group-item last-item" data-divlink="sample-panels" id="sample-panels-nav-link">
+          <i class="icon-sample"></i>
+          <span class="list-group-text">Sample</span>
+        </a>
+      </div>
+    </div>
+    <div id="panel-layout"          class="slide-panel panel panel-default"></div>
+    <div id="panel-function"        class="slide-panel panel panel-default"></div>
+    <div id="panel-labels"          class="slide-panel panel panel-default"></div>
+    <div id="add-related-display"   class="slide-panel panel panel-default"></div>
+    <div id="active-cog"            class="slide-panel panel panel-default"></div>
+    <div id="cog-table-sort-filter" class="slide-panel panel panel-default"></div>
+    <div id="univar-filter"         class="slide-panel panel panel-default"></div>
+    <div id="bivar-filter"          class="slide-panel panel panel-default"></div>
+    <div id="multivar-filter"       class="slide-panel panel panel-default"></div>
+    <div id="sample-panels"         class="slide-panel panel panel-default"></div>
+
+    <div class="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
+    </div>
+
+    <div class="right-panel">
+      <div class="right-sticky">
+        <i class="icon-chevron-left" id="sticky-icon"></i>
+      </div>
+      <div class="right-panel-container">
+        <h4>CogMap</h4>
+        <div class="cogmap-selectors shiny-template-output" id="cogMapOutput" data-post-render="cogMapOutputPostRender">
+        </div>
+      </div>
+    </div><!-- end right panel -->
+  </div>
+</div>
+
+<div id="footer">
+  <div id="filterStateInput" class="shiny-my-data-input"></div>
+  <div id="panelLabelStateInput" class="shiny-my-data-input"></div>
+  <div id="panelLayoutStateInput" class="shiny-my-data-input"></div>
+  <div id="relatedDisplayStateInput" class="shiny-my-data-input"></div>
+  <div id="activeCogStateInput" class="shiny-my-data-input"></div>
+  <div id="sortStateInput" class="shiny-my-data-input"></div>
+  <div id="appHashInput" class="shiny-my-data-input"></div>
+  <div id="appHashOutput" class="shiny-apphash-output"></div>
+  <div id="exposedStateDataOutput" data-callback="updateControlsExposedState" class="shiny-my-data-output"></div>
+  <div id="panelDimInput" class="shiny-my-data-input"></div>
+  <div class="container">
+     <div class="pull-left shiny-template-output" id="cogBreadcrumbOutput" data-post-render="cogBreadcrumbOutputPostRender">
+     </div>
+  </div>
+</div>
