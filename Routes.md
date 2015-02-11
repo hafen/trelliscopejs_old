@@ -10,37 +10,37 @@ may need to follow pattern: /*:groupName*/*:projectName*
 * /selectProject
   * Choose project to work in
 
-* /:projectName
+* /*:projectName*
   * base view of project
 
-* /:projectName/:page
+* /*:projectName*/:page
   * show the project on the given page
 
-* /:projectName/fn
+* /*:projectName*/fn
   * Panel Function... add update of first panel on the side?
 
-* /:projectName/related
+* /*:projectName*/related
   * show related displays
 
-* /:projectName/labels
+* /*:projectName*/labels
   * show labels currently displayed
 
-* /:projectName/cognostics
+* /*:projectName*/cognostics
   * table of cognostics to choose from
   * (should be combined with labels)
 
-* /:projectName/filter/table
+* /*:projectName*/filter/table
   * table filter view
 
-* /:projectName/filter/univariate
-* /:projectName/filter/bivariate
-* /:projectName/filter/multivariate
+* /*:projectName*/filter/univariate
+* /*:projectName*/filter/bivariate
+* /*:projectName*/filter/multivariate
   * uni/bi/multivariate filter views
 
-* /:projectName/sample
+* /*:projectName*/sample
   * coming
 
-* /:projectName/settings
+* /*:projectName*/settings
   * settings?
 
 
