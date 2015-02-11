@@ -12,7 +12,7 @@
     "build_prod": "ember build --environment production",
     "postinstall": "bower install",
     "test": "ember test",
-    "test_server": "ember test --server",
+    "test_server": "ember test --server"
   },
   "repository": "",
   "engines": {
