@@ -4,6 +4,8 @@ Explaination of all routes in application
 
 # Base Url
 
+may need to follow pattern: /*:groupName*/*:projectName*
+
 * /
 * /selectProject
   * Choose project to work in
