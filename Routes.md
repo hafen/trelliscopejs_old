@@ -13,7 +13,7 @@ may need to follow pattern: /*:groupName*/*:projectName*
 * /*:projectName*
   * base view of project
 
-* /*:projectName*/:page
+* /*:projectName*/*:page*
   * show the project on the given page
 
 * /*:projectName*/fn
