@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 LeftSideNavController = Ember.Controller.extend {
-  leftBarInfoArrC: leftBarInfoArr = [
+  leftBarInfoArrC: [
     {
       mainTitle: "View Options"
       items: [
