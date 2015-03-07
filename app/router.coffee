@@ -49,5 +49,15 @@ Router.map ->
 #   }
 # }
 
+# Ember.Handlebars.registerHelper 'debug', (optionalValue) ->
+#   console.log("Current Context");
+#   console.log("====================");
+#   console.log(this);
+#   console.log(arguments);
+#   if optionalValue
+#     console.log("Value");
+#     console.log("====================");
+#     console.log(optionalValue);
+#   return
 
 `export default Router`

@@ -1,11 +1,7 @@
 `import Ember from 'ember'`
 
-# leftBarInfoArr =
-
-
-LeftSideNavView = Ember.View.extend {
-# LeftSideNavController = Ember.ObjectController.extend {
-  leftBarInfoArr: [
+LeftSideNavController = Ember.Controller.extend {
+  leftBarInfoArrC: leftBarInfoArr = [
     {
       mainTitle: "View Options"
       items: [
@@ -22,7 +18,7 @@ LeftSideNavView = Ember.View.extend {
           divlink: "panel-labels", id: "panel-labels-nav-link"
         }
         {
-          title: "&nbsp;Related Displays", icon: "icon-plus-square-o",
+          title: "Related Displays", icon: "icon-plus-square-o",
           action: "showRelatedLayoutControls"
           divlink: "add-related-display", id: "add-related-display-nav-link"
         }
@@ -58,15 +54,6 @@ LeftSideNavView = Ember.View.extend {
       ]
     }
   ]
-
-  # postCount: ->
-  #   return this.get("model.posts.length")
-
 }
-console.log(LeftSideNavView)
 
-
-
-
-`export default LeftSideNavView`
-# `export default LeftSideNavController`
+`export default LeftSideNavController`
