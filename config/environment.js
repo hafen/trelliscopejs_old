@@ -5,7 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'trelliscopejs',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
+    // locationType: 'none',
+    // locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

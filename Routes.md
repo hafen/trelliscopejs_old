@@ -4,43 +4,43 @@ Explaination of all routes in application
 
 # Base Url
 
-may need to follow pattern: /*:groupName*/*:projectName*
+may need to follow pattern: /s/*:groupName*/*:projectName*
 
 * /
 * /selectProject
   * Choose project to work in
 
-* /*:projectName*
+* /s/*:projectName*
   * base view of project
 
-* /*:projectName*/*:page*
+* /s/*:projectName*/*:page*
   * show the project on the given page
 
-* /*:projectName*/fn
+* /s/*:projectName*/fn
   * Panel Function... add update of first panel on the side?
 
-* /*:projectName*/related
+* /s/*:projectName*/related
   * show related displays
 
-* /*:projectName*/labels
+* /s/*:projectName*/labels
   * show labels currently displayed
 
-* /*:projectName*/cognostics
+* /s/*:projectName*/cognostics
   * table of cognostics to choose from
   * (should be combined with labels)
 
-* /*:projectName*/filter/table
+* /s/*:projectName*/filter/table
   * table filter view
 
-* /*:projectName*/filter/univariate
-* /*:projectName*/filter/bivariate
-* /*:projectName*/filter/multivariate
+* /s/*:projectName*/filter/univariate
+* /s/*:projectName*/filter/bivariate
+* /s/*:projectName*/filter/multivariate
   * uni/bi/multivariate filter views
 
-* /*:projectName*/sample
+* /s/*:projectName*/sample
   * coming
 
-* /*:projectName*/settings
+* /s/*:projectName*/settings
   * settings?
 
 
