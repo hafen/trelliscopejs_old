@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="javascript:">Trelliscope Viewer</a>
+      {{!-- <a class="navbar-brand" href="javascript:">Trelliscope Viewer</a> --}}
       <div class="left-icons">
         <ul>
           <a data-toggle="modal" data-target="#displayInfoModal" href="javascript:"><li><i class="icon-file-info"></i></li></a>
@@ -23,56 +23,15 @@
 
 <!-- Begin page content -->
 <div class="container">
-  <div id="wrapper">
-    <div id="sidebar-wrapper">
-      <div id="logo">
-        <img src="assets/images/logo.svg">
-      </div>
 
-      {{render "leftSideNav"}}
+  {{render "leftSideNav"}}
 
-      </div>
-    </div>
-    <div id="panel-layout"          class="slide-panel panel panel-default"></div>
-    <div id="panel-function"        class="slide-panel panel panel-default"></div>
-    <div id="panel-labels"          class="slide-panel panel panel-default"></div>
-    <div id="add-related-display"   class="slide-panel panel panel-default"></div>
-    <div id="active-cog"            class="slide-panel panel panel-default"></div>
-    <div id="cog-table-sort-filter" class="slide-panel panel panel-default"></div>
-    <div id="univar-filter"         class="slide-panel panel panel-default"></div>
-    <div id="bivar-filter"          class="slide-panel panel panel-default"></div>
-    <div id="multivar-filter"       class="slide-panel panel panel-default"></div>
-    <div id="sample-panels"         class="slide-panel panel panel-default"></div>
-
-    <div class="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
-    </div>
-
-    <div class="right-panel">
-      <div class="right-sticky">
-        <i class="icon-chevron-left" id="sticky-icon"></i>
-      </div>
-      <div class="right-panel-container">
-        <h4>CogMap</h4>
-        <div class="cogmap-selectors shiny-template-output" id="cogMapOutput" data-post-render="cogMapOutputPostRender">
-        </div>
-      </div>
-    </div><!-- end right panel -->
+  {{!-- {{output}} --}}
+  <div class="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
   </div>
+
+  {{render "rightPanel"}}
 </div>
 
-<div id="footer">
-  <div id="filterStateInput" class="shiny-my-data-input"></div>
-  <div id="panelLabelStateInput" class="shiny-my-data-input"></div>
-  <div id="panelLayoutStateInput" class="shiny-my-data-input"></div>
-  <div id="relatedDisplayStateInput" class="shiny-my-data-input"></div>
-  <div id="activeCogStateInput" class="shiny-my-data-input"></div>
-  <div id="sortStateInput" class="shiny-my-data-input"></div>
-  <div id="appHashInput" class="shiny-my-data-input"></div>
-  <div id="appHashOutput" class="shiny-apphash-output"></div>
-  <div id="exposedStateDataOutput" data-callback="updateControlsExposedState" class="shiny-my-data-output"></div>
-  <div id="panelDimInput" class="shiny-my-data-input"></div>
-  <div class="container">
-     <div class="pull-left shiny-template-output" id="cogBreadcrumbOutput" data-post-render="cogBreadcrumbOutputPostRender">
-     </div>
-  </div>
-</div>
+{{render "footer"}}
+
