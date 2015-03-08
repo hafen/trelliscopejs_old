@@ -7,18 +7,17 @@ This README outlines the details of collaborating on trelliscopejs.
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
+* [Node.js](http://nodejs.org/) (with NPM)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone https://github.com/hafen/trelliscopejs`
+* `cd ./trelliscopejs`
 * `npm install`
-* `bower install`
 
 ## Running / Development
 
-* `ember server`
+* `npm start`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
@@ -27,13 +26,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Running Tests
 
-* `ember test`
-* `ember test --server`
+* `npm test`
+* `npm test_server`
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+* `npm build` (development)
+* `npm build_prod` (production)
 
 ### Deploying
 
