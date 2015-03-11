@@ -24,14 +24,14 @@
 <!-- Begin page content -->
 <div class="container">
 
-  {{render "leftSideNav"}}
+  {{render "navs" navs}}
 
   {{!-- {{output}} --}}
   <div class="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
   </div>
 
-  {{render "rightPanel"}}
+  {{partial "rightPanel"}}
 </div>
 
-{{render "footer"}}
+{{partial "footer"}}
 
