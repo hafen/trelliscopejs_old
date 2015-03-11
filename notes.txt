@@ -1,0 +1,35 @@
+
+# underscore
+http://underscorejs.org/
+
+# useful ember functions
+http://code418.com/blog/2012/03/08/useful-emberjs-functions/
+
+
+# multiple models in one controller
+http://stackoverflow.com/questions/20521967/emberjs-how-to-load-multiple-models-on-the-same-route
+
+
+
+# Router resource() vs route()
+http://discuss.emberjs.com/t/router-resource-vs-route/1439
+
+# fixtures
+http://www.sitepoint.com/fixture-adapters-ember-js-server/
+
+# set controller model info
+https://gist.github.com/tomdale/3981133#organizing-your-data-with-models
+
+
+# diff between property('model.[]') and property('model.@each')
+http://stackoverflow.com/questions/16321885/what-is-the-difference-between-the-property-and-the-each-property-in-emb
+
+
+# REST model adapter
+http://emberjs.com/api/data/classes/DS.RESTAdapter.html
+
+# watchman funnyness
+https://github.com/ember-cli/ember-cli/issues/2226
+https://github.com/ember-cli/ember-cli/issues/2894
+https://github.com/ember-cli/ember-cli/issues/2674
+https://github.com/facebook/watchman/issues/70
