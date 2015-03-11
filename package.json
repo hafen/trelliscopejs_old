@@ -8,9 +8,9 @@
   },
   "scripts": {
     "start": "ember server",
-    "build": "ember build",
-    "build_prod": "ember build --environment production",
-    "postinstall": "bower install",
+    "ebuild": "ember build",
+    "ebuild_prod": "ember build --environment production",
+    "postinstall": "ember install:bower; brew install watchman",
     "test": "ember test",
     "test_server": "ember test --server"
   },

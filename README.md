@@ -27,12 +27,12 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Running Tests
 
 * `npm test`
-* `npm test_server`
+* `npm run-script test_server`
 
 ### Building
 
-* `npm build` (development)
-* `npm build_prod` (production)
+* `npm run-script ebuild` (development)
+* `npm run-script ebuild_prod` (production)
 
 ### Deploying
 
