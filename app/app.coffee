@@ -6,11 +6,13 @@
 
 Ember.MODEL_FACTORY_INJECTIONS = true
 
-App = Ember.Application.extend
-  modulePrefix: config.modulePrefix
-  podModulePrefix: config.podModulePrefix
-  Resolver: Resolver
+App = Ember.Application.extend {
+  modulePrefix:     config.modulePrefix
+  podModulePrefix:  config.podModulePrefix
+  Resolver:         Resolver
+}
 
-loadInitializers App, config.modulePrefix
+
+loadInitializers(App, config.modulePrefix)
 
 `export default App`
