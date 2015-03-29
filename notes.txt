@@ -38,3 +38,9 @@ https://github.com/facebook/watchman/issues/70
 
 # removes handlebars to now use HTMLbars in newer version of ember
 https://github.com/rwjblue/components-in-subdirs/commit/78e7ed2d072f42d9cf0fd3d9fc2376f106ab762e
+
+
+
+# create mock http api
+http://www.ember-cli.com/#mocks-and-fixtures
+ember g http-mock posts # for posts
