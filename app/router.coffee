@@ -6,9 +6,12 @@ Router = Ember.Router.extend {
 }
 
 
-Router.map ->
+Router.map (map) ->
 
   # this.resource('navs')
+  this.route('index', {path: '/'})
+
+  this.route('singlePlot', {path: '/s/'})
 
   this.route('catchall', {path: '/*wildcard'})
   return

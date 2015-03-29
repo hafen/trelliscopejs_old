@@ -1,4 +1,6 @@
-App.SingleController = Ember.ObjectController.extend {
+`import Ember from 'ember'`
+
+SinglePlotController = Ember.Controller.extend {
   # // initial value
   isExpanded: false,
 
@@ -12,3 +14,5 @@ App.SingleController = Ember.ObjectController.extend {
       return
   }
 }
+
+`export default SinglePlotController`

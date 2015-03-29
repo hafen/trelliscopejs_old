@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-IndexRoute = Ember.Route.extend {
+SinglePlotRoute = Ember.Route.extend {
 
   model: (params) ->
     store = this.store
@@ -19,15 +19,13 @@ IndexRoute = Ember.Route.extend {
   #     self.set("navs", result)
   #     return
 
-  # setupController: (controller, model) ->
-  #   console.log("calling index setupController")
-  #   this._super(controller,model);
-  #   controller.set('navs', this.get('navs'))
-  #   return
-
-  # redirect: ->
-  #   this.transitionTo('s')
-  #   return
+  setupController: (controller, model) ->
+    console.log("calling SinglePlotRoute setupController")
+    this._super(controller,model);
+    # controller.set('navs', this.get('navs'))
+    return
 }
 
-`export default IndexRoute`
+
+
+`export default SinglePlotRoute`
