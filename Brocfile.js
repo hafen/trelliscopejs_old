@@ -1,28 +1,17 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var compileSass         = require('broccoli-sass');
+var mergeTrees          = require('broccoli-merge-trees');
+var cjsx                = require('broccoli-cjsx');
 
-var app = new EmberApp();
-
-app.import('bower_components/underscore/underscore.js')
-
-// app.import({
-//   development: 'bower_components/underscore/underscore.js',
-//   production:  'bower_components/underscore/underscore-min.js'
-// });
+// https://www.npmjs.com/package/broccoli-asset-rev
+    // "jquery": "^1.11.1",
+    // "qunit": "~1.17.1",
+    // "bootstrap": "~3.3.1",
+    // "underscore": "~1.8.2"
 
 
-// Use `app.import` to add additional libraries to the generated
-// output files.
-//
-// If you need to use different assets in different
-// environments, specify an object as the first parameter. That
-// object's keys should be the environment name and the values
-// should be the asset to use in that environment.
-//
-// If the library that you are including contains AMD or ES6
-// modules that you would like to import into your application
-// please specify an object with the list of modules as keys
-// along with the exports of each module as its value.
+var styles = compileSass(['app/scss'], 'app.scss', 'app.css');
+var scripts = filterCoffeeScript(coffeeDir);
 
-module.exports = app.toTree();
+module.exports = mergeTrees([styles, scripts]);
