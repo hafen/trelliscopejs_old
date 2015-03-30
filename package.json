@@ -9,23 +9,28 @@
   "scripts": {
     "start": "ember server",
 
-    "ebuild": "npm run-script bower_install; ember build",
-    "ebuild_prod": "npm run-script bower_install; ember build --environment production",
+    "old_ebuild": "npm run-script bower_install; ember build",
+    "old_ebuild_prod": "npm run-script bower_install; ember build --environment production",
 
-    "postinstall": "npm run-script install_ember; npm run-script install_watchman; npm run-script install_phantomjs; npm run-script ebuild",
+    "old_postinstall": "npm run-script install_ember; npm run-script install_watchman; npm run-script install_phantomjs; npm run-script ebuild",
 
-    "test": "ember test",
-    "test_server": "ember test --server",
+    "old_test": "ember test",
+    "old_test_server": "ember test --server",
 
-    "install_ember": "which ember || npm install -g ember",
-    "install_watchman": "which watchman || brew install watchman",
-    "install_phantomjs": "which phantomjs || npm install -g phantomjs",
+    "old_install_ember": "which ember || npm install -g ember",
+    "old_install_watchman": "which watchman || brew install watchman",
+    "old_install_phantomjs": "which phantomjs || npm install -g phantomjs",
 
-    "bower_install": "bower install"
+    "old_bower_install": "bower install",
+
+    "watch": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "test": "jest"
+
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 0.10.0"
   },
   "author": "",
   "license": "MIT",
