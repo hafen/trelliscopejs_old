@@ -1,17 +1,55 @@
 /* global require, module */
 
-var compileSass         = require('broccoli-sass');
-var mergeTrees          = require('broccoli-merge-trees');
-var cjsx                = require('broccoli-cjsx');
+// Broccoli Example file
+// https://github.com/broccolijs/broccoli-sample-app/blob/master/Brocfile.js
 
-// https://www.npmjs.com/package/broccoli-asset-rev
+// https://gist.github.com/eploko/bf21669439789c439f80
+// great example file with
+// js, react, browserify,
+// scss, images, html,
+// bootstrap, fonts, images,
+// assetRev
+
+// var assetRev    = require('broccoli-asset-rev');           // change file name for new sources
+// https://github.com/rickharrison/broccoli-asset-rev
+
+// var concat      = require('broccoli-concat');           // concat many files
+var pickFiles   = require('broccoli-static-compiler');  // static file compiler
+var compileLess = require('broccoli-less-single');      // less file compiler
+var minifyCss = require('broccoli-more-css');      // less file compiler
+
+var cjsx        = require('broccoli-cjsx');             // coffee script jsx compiler
+var uglify      = require('broccoli-uglify-js');        // uglify the javascript
+
+var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
+var env         = require('broccoli-env').getEnv();     // get environment from compiler
+
+
     // "jquery": "^1.11.1",
     // "qunit": "~1.17.1",
     // "bootstrap": "~3.3.1",
     // "underscore": "~1.8.2"
 
+// Styles
+var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
+    paths: ['.', 'public', 'node_modules']
+});
 
-var styles = compileSass(['app/scss'], 'app.scss', 'app.css');
-var scripts = filterCoffeeScript(coffeeDir);
+// var scripts = cjsx(['app/coffee'], {extensions: ['.litcoffee']});
 
-module.exports = mergeTrees([styles, scripts]);
+if (env === 'production') {
+  // minify js
+  appJs = uglifyJavaScript(appJs, {
+    // mangle: false,
+    // compress: false
+  })
+
+  compiledAppLess = minifyCss(compiledAppLess)
+}
+
+// var mergedTree = mergeTrees([compiledAppLess, scripts])
+// create tree for public folder (no filters needed here)
+var publicFiles = 'public'
+
+var mergedTree = mergeTrees([compiledAppLess, publicFiles])
+module.exports = mergedTree;

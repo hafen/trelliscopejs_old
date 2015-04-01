@@ -6,52 +6,55 @@
     "doc": "doc",
     "test": "tests"
   },
+  "main": "js/app.js",
   "scripts": {
-    "start": "ember server",
-
+    "old_start": "ember server",
     "old_ebuild": "npm run-script bower_install; ember build",
     "old_ebuild_prod": "npm run-script bower_install; ember build --environment production",
-
     "old_postinstall": "npm run-script install_ember; npm run-script install_watchman; npm run-script install_phantomjs; npm run-script ebuild",
-
     "old_test": "ember test",
     "old_test_server": "ember test --server",
-
     "old_install_ember": "which ember || npm install -g ember",
     "old_install_watchman": "which watchman || brew install watchman",
     "old_install_phantomjs": "which phantomjs || npm install -g phantomjs",
-
     "old_bower_install": "bower install",
-
-    "watch": "watchify -o js/bundle.js -v -d js/app.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "start": "broccoli serve",
+    "bbuild": "rm -r public_test/; broccoli build public_test",
+    "build2": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > browserify/bundle.min.js",
     "test": "jest"
-
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": "0.10.38"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "browserify":         "^6.2.0",
-    "envify":             "^3.0.0",
-    "flux":               "^2.0.1",
-    "jest-cli":           "~0.1.17",
-    "keymirror":          "~0.1.0",
-    "object-assign":      "^1.0.0",
-    "react":              "^0.12.0",
-    "reactify":           "^0.15.2",
-    "uglify-js":          "~2.4.15",
-    "watchify":           "^2.1.1",
-    "jquery": "^1.11.1",
-    "qunit": "~1.17.1",
     "bootstrap": "~3.3.1",
+    "broccoli": "^0.15.3",
+    "broccoli-cjsx": "0.0.1",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-concat": "0.0.13",
+    "broccoli-env": "0.0.1",
+    "broccoli-less-single": "^0.2.0",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-more-css": "^0.1.0",
+    "broccoli-static-compiler": "^0.2.1",
+    "broccoli-uglify-js": "^0.1.3",
+    "browserify": "^6.2.0",
+    "director": "^1.2.8",
+    "envify": "^3.0.0",
+    "flux": "^2.0.1",
+    "jest-cli": "~0.1.17",
+    "jquery": "^1.11.1",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.12.1",
+    "reactify": "^0.15.2",
+    "uglify-js": "~2.4.15",
     "underscore": "~1.8.2"
-
   },
-    "browserify": {
+  "browserify": {
     "transform": [
       "reactify",
       "envify"
