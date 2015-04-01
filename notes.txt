@@ -44,3 +44,7 @@ https://github.com/rwjblue/components-in-subdirs/commit/78e7ed2d072f42d9cf0fd3d9
 # create mock http api
 http://www.ember-cli.com/#mocks-and-fixtures
 ember g http-mock posts # for posts
+
+
+# good literal coffeescript app
+https://github.com/mjm/eats/blob/master/client/js/view/eats.litcoffee
