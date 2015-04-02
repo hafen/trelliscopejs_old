@@ -37,7 +37,24 @@ var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css'
 });
 compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_picked tree"})
 
-// var scripts = cjsx(['app/coffee'], {extensions: ['.litcoffee']});
+// var appJs = pickFiles('app', { srcDir: "coffee", destDir: '/js' });
+// appJs = log(appJs, { output: 'tree', label: 'js_files_picked tree' });
+// appJs = cjsx(appJs, {extensions: ['.litcoffee']});
+// appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
+
+
+// browserify the application code
+// calls browserify transform: 'coffee-reactify' in package.json info
+var fastBrowserify = require('broccoli-fast-browserify');
+var appJs = fastBrowserify('app/coffee', {
+  bundles: {
+    'assets/app_bundle.js': {
+      entryPoints: ['app.litcoffee']
+    }
+  }
+});
+appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
+
 
 if (env === 'production') {
   // minify js
