@@ -56,6 +56,7 @@ var appJs = fastBrowserify('app/coffee', {
 appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
 
 
+// Sweet stuff for production environment
 if (env === 'production') {
   // minify js
   appJs = uglifyJavaScript(appJs, {
@@ -63,6 +64,7 @@ if (env === 'production') {
     // compress: false
   })
 
+  // minify css output (remove white space)
   compiledAppLess = minifyCss(compiledAppLess)
 }
 
