@@ -68,9 +68,14 @@ if (env === 'production') {
   compiledAppLess = minifyCss(compiledAppLess)
 }
 
-// var mergedTree = mergeTrees([compiledAppLess, scripts])
 // create tree for public folder (no filters needed here)
 var publicFiles = 'public'
 
-var mergedTree = mergeTrees([compiledAppLess, publicFiles])
+// create tree for public folder (no filters needed here)
+var htmlFiles = pickFiles('app', {srcDir: 'html', destDir: '/' });
+
+// merge the trees
+var mergedTree = mergeTrees([publicFiles, compiledAppLess, appJs, htmlFiles])
+mergedTree = log(mergedTree, { output: 'tree', label: 'output tree' });
+
 module.exports = mergedTree;
