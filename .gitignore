@@ -4,6 +4,8 @@
 /dist
 /tmp
 /public_test
+/browserify_bundle.js
+/build
 
 # dependencies
 /node_modules
