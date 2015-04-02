@@ -5,11 +5,11 @@ This source code is licensed under the BSD-style license found in the
 LICENSE file in the root directory of this source tree. An additional grant
 of patent rights can be found in the PATENTS file in the same directory.
 
-    `/** @jsx React.DOM */`
-    React = require('./test')
+    # @cjsx React.DOM
     React = require('react')
+    TodoApp = require('./test/test')
 
-    TodoApp = require('./components/TodoApp.react')
+    # TodoApp = require('./components/TodoApp.react')
 
     React.render(
       <TodoApp />,
