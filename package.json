@@ -43,7 +43,12 @@
   },
   "browserify": {
     "transform": [
-      "coffee-reactify"
+      [
+        "coffee-reactify",
+        {
+          "extension": ".litcoffee"
+        }
+      ]
     ]
   },
   "scripts": {

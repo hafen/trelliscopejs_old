@@ -3,7 +3,7 @@
 
 This is a test of literate coffeescript
 
-    # @cjsx React.DOM
+    # @litcoffee React.DOM
     React = require 'react'
 
     RadComponent = React.createClass
