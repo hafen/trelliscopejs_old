@@ -24,6 +24,7 @@ var uglify      = require('broccoli-uglify-js');        // uglify the javascript
 var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
 var env         = require('broccoli-env').getEnv();     // get environment from compiler
 
+var log = require('broccoli-stew').log;
 
     // "jquery": "^1.11.1",
     // "qunit": "~1.17.1",
@@ -34,6 +35,7 @@ var env         = require('broccoli-env').getEnv();     // get environment from 
 var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
     paths: ['.', 'public', 'node_modules']
 });
+compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_picked tree"})
 
 // var scripts = cjsx(['app/coffee'], {extensions: ['.litcoffee']});
 
