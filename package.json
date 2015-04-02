@@ -54,6 +54,7 @@
   "scripts": {
     "start": "broccoli serve",
     "bbuild": "rm -r build/; broccoli build build",
+    "bfy": "browserify . > browserify_bundle.js",
     "test": "jest"
   },
   "jest": {
