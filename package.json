@@ -6,24 +6,8 @@
     "doc": "doc",
     "test": "tests"
   },
-  "main": "js/app.js",
-  "scripts": {
-    "old_start": "ember server",
-    "old_ebuild": "npm run-script bower_install; ember build",
-    "old_ebuild_prod": "npm run-script bower_install; ember build --environment production",
-    "old_postinstall": "npm run-script install_ember; npm run-script install_watchman; npm run-script install_phantomjs; npm run-script ebuild",
-    "old_test": "ember test",
-    "old_test_server": "ember test --server",
-    "old_install_ember": "which ember || npm install -g ember",
-    "old_install_watchman": "which watchman || brew install watchman",
-    "old_install_phantomjs": "which phantomjs || npm install -g phantomjs",
-    "old_bower_install": "bower install",
-    "start": "broccoli serve",
-    "bbuild": "rm -r public_test/; broccoli build public_test",
-    "build2": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > browserify/bundle.min.js",
-    "test": "jest"
-  },
-  "repository": "",
+  "main": "app/coffee/app.litcoffee",
+  "repository": "github.com/schloerke/trelliscopejs",
   "engines": {
     "node": "0.10.38"
   },
@@ -36,12 +20,15 @@
     "broccoli-cli": "^1.0.0",
     "broccoli-concat": "0.0.13",
     "broccoli-env": "0.0.1",
+    "broccoli-fast-browserify": "^0.2.5",
     "broccoli-less-single": "^0.2.0",
     "broccoli-merge-trees": "^0.2.1",
     "broccoli-more-css": "^0.1.0",
     "broccoli-static-compiler": "^0.2.1",
+    "broccoli-stew": "0.1.6",
     "broccoli-uglify-js": "^0.1.3",
     "browserify": "^6.2.0",
+    "coffee-reactify": "^3.0.0",
     "director": "^1.2.8",
     "envify": "^3.0.0",
     "flux": "^2.0.1",
@@ -56,9 +43,13 @@
   },
   "browserify": {
     "transform": [
-      "reactify",
-      "envify"
+      "coffee-reactify"
     ]
+  },
+  "scripts": {
+    "start": "broccoli serve",
+    "bbuild": "rm -r build/; broccoli build build",
+    "test": "jest"
   },
   "jest": {
     "rootDir": "./js"
