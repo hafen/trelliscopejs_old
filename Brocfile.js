@@ -59,7 +59,7 @@ appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
 // Sweet stuff for production environment
 if (env === 'production') {
   // minify js
-  appJs = uglifyJavaScript(appJs, {
+  appJs = uglify(appJs, {
     // mangle: false,
     // compress: false
   })
