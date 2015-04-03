@@ -16,9 +16,7 @@
 // var concat      = require('broccoli-concat');           // concat many files
 var pickFiles   = require('broccoli-static-compiler');  // static file compiler
 var compileLess = require('broccoli-less-single');      // less file compiler
-var minifyCss = require('broccoli-more-css');      // less file compiler
 
-var cjsx        = require('broccoli-cjsx');             // coffee script jsx compiler
 var uglify      = require('broccoli-uglify-js');        // uglify the javascript
 
 var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
@@ -64,8 +62,6 @@ if (env === 'production') {
     // compress: false
   })
 
-  // minify css output (remove white space)
-  compiledAppLess = minifyCss(compiledAppLess)
 }
 
 // create tree for public folder (no filters needed here)
