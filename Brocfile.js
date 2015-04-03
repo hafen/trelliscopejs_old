@@ -17,6 +17,12 @@
 var pickFiles   = require('broccoli-static-compiler');  // static file compiler
 var compileLess = require('broccoli-less-single');      // less file compiler
 
+// var splitCss    = require('broccoli-csssplit');      // split css files into many files, if necessary
+// https://github.com/aboekhoff/broccoli-csssplit
+// http://stackoverflow.com/a/9906889 <- why the need to split css files... silly IE
+
+var cleanCss    = require('broccoli-clean-css');      // css file compressor... clean!: https://github.com/jakubpawlowicz/clean-css#what-is-clean-css
+
 var uglify      = require('broccoli-uglify-js');        // uglify the javascript
 
 var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
@@ -33,12 +39,8 @@ var log = require('broccoli-stew').log;
 var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
     paths: ['.', 'public', 'node_modules']
 });
-compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_picked tree"})
 
-// var appJs = pickFiles('app', { srcDir: "coffee", destDir: '/js' });
-// appJs = log(appJs, { output: 'tree', label: 'js_files_picked tree' });
-// appJs = cjsx(appJs, {extensions: ['.litcoffee']});
-// appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
+compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_picked tree"})
 
 
 // browserify the application code
@@ -61,6 +63,10 @@ if (env === 'production') {
     // mangle: false,
     // compress: false
   })
+
+  // minify css output
+  compiledAppLess = cleanCss(compiledAppLess)
+  // compiledAppLess = splitCss(compiledAppLess)
 
 }
 
