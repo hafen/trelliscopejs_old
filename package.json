@@ -20,7 +20,7 @@
     "broccoli-cli": "^1.0.0",
     "broccoli-env": "0.0.1",
     "broccoli-fast-browserify": "^0.2.5",
-    "broccoli-less-single": "^0.2.0",
+    "broccoli-less": "^2.0.0",
     "broccoli-merge-trees": "^0.2.1",
     "broccoli-static-compiler": "^0.2.1",
     "broccoli-stew": "0.1.6",

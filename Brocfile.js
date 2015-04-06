@@ -14,8 +14,10 @@
 // https://github.com/rickharrison/broccoli-asset-rev
 
 // var concat      = require('broccoli-concat');           // concat many files
-var pickFiles   = require('broccoli-static-compiler');  // static file compiler
-var compileLess = require('broccoli-less-single');      // less file compiler
+var pickFiles      = require('broccoli-static-compiler');  // static file compiler
+
+var fastBrowserify = require('broccoli-fast-browserify'); // js
+var lessCompiler = require('broccoli-less');              // less
 
 // var splitCss    = require('broccoli-csssplit');      // split css files into many files, if necessary
 // https://github.com/aboekhoff/broccoli-csssplit
@@ -36,16 +38,20 @@ var log = require('broccoli-stew').log;
     // "underscore": "~1.8.2"
 
 // Styles
-var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
-    paths: ['.', 'public', 'node_modules']
+// var compileLess    = require('broccoli-less-single');      // less file compiler
+// var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
+//     paths: ['.', 'public', 'node_modules']
+// });
+var lessFiles = pickFiles('app', {srcDir: 'styles', destDir: '/assets' });
+// lessFiles = log(lessFiles, {output: 'tree', label: "css_files_picked tree"})
+var compiledAppLess = lessCompiler(lessFiles, {
+    paths: ['.', 'node_modules']
 });
-
-compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_picked tree"})
+compiledAppLess = log(compiledAppLess, {output: 'tree', label: "css_files_compiled tree"})
 
 
 // browserify the application code
 // calls browserify transform: 'coffee-reactify' in package.json info
-var fastBrowserify = require('broccoli-fast-browserify');
 var appJs = fastBrowserify('app/coffee', {
   bundles: {
     'assets/app_bundle.js': {
