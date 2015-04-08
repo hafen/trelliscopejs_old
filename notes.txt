@@ -48,3 +48,25 @@ ember g http-mock posts # for posts
 
 # good literal coffeescript app
 https://github.com/mjm/eats/blob/master/client/js/view/eats.litcoffee
+
+
+# flux todo MVC
+https://github.com/facebook/flux/tree/master/examples/flux-todomvc
+http://facebook.github.io/flux/docs/todo-list.html
+file:///Users/barret/Dropbox/school/research/git/trelliscopejs/flux/examples/flux-todomvc/index.html
+
+
+# react boilerplate
+https://github.com/petehunt/react-boilerplate
+
+
+# flux chat tutorial videos
+http://facebook.github.io/flux/docs/chat.html#content
+
+
+# react router
+http://andreypopp.viewdocs.io/react-router-component
+
+
+# react "hello world" app
+http://facebook.github.io/react/docs/getting-started.html
