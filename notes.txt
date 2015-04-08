@@ -70,3 +70,8 @@ http://andreypopp.viewdocs.io/react-router-component
 
 # react "hello world" app
 http://facebook.github.io/react/docs/getting-started.html
+
+# notes about live-reload within broccoli
+https://github.com/mklabs/tiny-lr
+https://github.com/broccolijs/broccoli/blob/master/lib/server.js#L32
+
