@@ -74,4 +74,4 @@ http://facebook.github.io/react/docs/getting-started.html
 # notes about live-reload within broccoli
 https://github.com/mklabs/tiny-lr
 https://github.com/broccolijs/broccoli/blob/master/lib/server.js#L32
-
+http://feedback.livereload.com/knowledgebase/articles/86180-how-do-i-add-the-script-tag-manually-
