@@ -14,5 +14,5 @@ of patent rights can be found in the PATENTS file in the same directory.
 
     React.render(
       <TodoApp />,
-      document.getElementById('body')
+      document.getElementById('todoapp')
     )
