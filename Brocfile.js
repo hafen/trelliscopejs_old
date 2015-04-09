@@ -73,8 +73,8 @@ if (env === 'production') {
   // minify css output
   compiledAppLess = cleanCss(compiledAppLess)
   // compiledAppLess = splitCss(compiledAppLess)
-
 }
+
 
 // create tree for public folder (no filters needed here)
 var publicFiles = 'public'
@@ -84,6 +84,16 @@ var htmlFiles = pickFiles('app', {srcDir: 'html', destDir: '/' });
 
 // merge the trees
 var mergedTree = mergeTrees([publicFiles, compiledAppLess, appJs, htmlFiles])
+
+// if (env == "development") {
+//   var cjsx = require('broccoli-cjsx');
+
+//   var coffeeFilesDebug = pickFiles('app', {srcDir: 'coffee', destDir: '/assets/debug/js' });
+//   coffeeFilesDebug = cjsx(coffeeFilesDebug, {extensions: ['.litcoffee']});
+
+//   mergedTree = mergeTrees([mergedTree, coffeeFilesDebug])
+// }
+
 mergedTree = log(mergedTree, { output: 'tree', label: 'output tree' });
 
 module.exports = mergedTree;

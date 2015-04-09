@@ -16,6 +16,7 @@
   "dependencies": {
     "bootstrap": "~3.3.1",
     "broccoli": "^0.15.3",
+    "broccoli-cjsx": "0.0.2",
     "broccoli-clean-css": "^1.0.0",
     "broccoli-env": "0.0.1",
     "broccoli-fast-browserify": "^0.2.5",
