@@ -25,12 +25,12 @@ Template for navigation items in the left side bar
             description = navItem.description
             itemId      = navItem.itemId
           />
-          itemDisplayArr.push(<br />)
+          # itemDisplayArr.push(<br />)
 
 
-        <div class="list-group list-group-sidebar">
-          <a href="javascript:" class="list-group-item active list-group-item-primary list-group-item-short">
-            <span class="list-group-header">{@props.title}</span>
+        <div className="list-group list-group-sidebar">
+          <a href="javascript:" className="list-group-item active list-group-item-primary list-group-item-short">
+            <span className="list-group-header">{@props.title}</span>
           </a>
           {itemDisplayArr}
         </div>

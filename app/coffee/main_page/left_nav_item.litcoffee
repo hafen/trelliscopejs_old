@@ -20,9 +20,9 @@ Template for navigation items in the left side bar
       navLink:     -> return this.props.divLink + "-nav-link"
 
       render: ->
-        <a href="javascript:" class="list-group-item" data-divlink={@props.divlink} id={@props.itemId}>
-          <i class={@props.icon}></i>
-          <span class="list-group-text">{ @props.title }</span>
+        <a href="javascript:" className="list-group-item" data-divlink={@props.divlink} id={@props.itemId}>
+          <i className={@props.icon}></i>
+          <span className="list-group-text">{ @props.title }</span>
         </a>
 
     module.exports = LeftNavItem

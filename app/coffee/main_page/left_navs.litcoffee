@@ -15,11 +15,11 @@ Contains navigations for the application
         endDivs = []
         for navItem in @viewOptionsInfoArr
           endDivs.push(
-            <div id={ navItem.divlink } class="slide-panel panel panel-default"></div>
+            <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
           )
         for navItem in @cognosticsInfoArr
           endDivs.push(
-            <div id={ navItem.divlink } class="slide-panel panel panel-default"></div>
+            <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
           )
 
         <div>
@@ -29,7 +29,6 @@ Contains navigations for the application
                 <img src="assets/images/logo.svg" />
               </div>
 
-              START LEFT Navigation
               <LeftNavGroup title="View Options"  navItems=@viewOptionsInfoArr />
 
               <LeftNavGroup title="Cognostics"    navItems=@cognosticsInfoArr />
