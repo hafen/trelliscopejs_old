@@ -7,19 +7,27 @@ Contains navigations for the application
     React = require 'react'
 
     LeftNavGroup = require("./left_nav_group.litcoffee")
-    dataLeftNav = require("../data/data_left_navigation.litcoffee")
+    # dataLeftNav = require("../data/data_left_navigation.litcoffee")
+    LeftNavStore = require("../stores/store_left_nav.litcoffee")
+
 
     LeftNavsComponent = React.createClass
       displayName: "LeftNavsComponent"
 
+      getInitialState: ->
+        return {
+          viewOptionsInfoArr: LeftNavStore.getAllViewOptions()
+          cognosticsInfoArr:  LeftNavStore.getAllCognostics()
+        }
+
       render: ->
 
         endDivs = []
-        for navItem in dataLeftNav.viewOptionsInfoArr
+        for navItem in @state.viewOptionsInfoArr
           endDivs.push(
             <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
           )
-        for navItem in dataLeftNav.cognosticsInfoArr
+        for navItem in @state.cognosticsInfoArr
           endDivs.push(
             <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
           )
@@ -32,9 +40,9 @@ Contains navigations for the application
               </div>
 
               <div className="list-group list-group-sidebar">
-                <LeftNavGroup title="View Options"  navItems=dataLeftNav.viewOptionsInfoArr />
+                <LeftNavGroup title="View Options"  navItems=@state.viewOptionsInfoArr key="view_options" />
 
-                <LeftNavGroup title="Cognostics"    navItems=dataLeftNav.cognosticsInfoArr />
+                <LeftNavGroup title="Cognostics"    navItems=@state.cognosticsInfoArr  key="view_cognostics" />
               </div>
 
             </div>
