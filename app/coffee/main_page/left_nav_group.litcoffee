@@ -21,6 +21,7 @@ Template for navigation items in the left side bar
         for navItem in @props.navItems
           navTitle = if navItem.navTitle? then navItem.navTitle else navItem.title
           itemDisplayArr.push <LeftNavItem
+            key         = navItem.itemId
             divLink     = navItem.divLink
             icon        = navItem.icon
             title       = navTitle
