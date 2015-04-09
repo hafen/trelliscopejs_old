@@ -1,0 +1,38 @@
+
+# Left Navigation Item
+
+Template for navigation items in the left side bar
+
+    # @litcoffee React.DOM
+    React = require 'react'
+    ReactPropTypes = React.PropTypes
+
+    LeftNavItem = require("./left_nav_item.litcoffee")
+
+    LeftNavGroup = React.createClass
+      propTypes:
+        title: ReactPropTypes.string.isRequired
+        navItems: ReactPropTypes.array.isRequired
+
+      render: ->
+
+        itemDisplayArr = []
+        for navItem in @props.navItems
+          itemDisplayArr.push <LeftNavItem
+            divLink     = navItem.divLink
+            icon        = navItem.icon
+            title       = navItem.title
+            description = navItem.description
+            itemId      = navItem.itemId
+          />
+          itemDisplayArr.push(<br />)
+
+
+        <div class="list-group list-group-sidebar">
+          <a href="javascript:" class="list-group-item active list-group-item-primary list-group-item-short">
+            <span class="list-group-header">{@props.title}</span>
+          </a>
+          {itemDisplayArr}
+        </div>
+
+    module.exports = LeftNavGroup

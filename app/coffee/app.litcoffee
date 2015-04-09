@@ -8,7 +8,8 @@ of patent rights can be found in the PATENTS file in the same directory.
     # @litcoffee React.DOM
     Flux = require('flux')
     React = require('react')
-    TodoApp = require('./test/test.litcoffee')
+    # TodoApp = require('./test/test.litcoffee')
+    TodoApp = require('./main_page/main.litcoffee')
 
     # TodoApp = require('./components/TodoApp.react')
 
