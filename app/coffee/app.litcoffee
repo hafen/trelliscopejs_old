@@ -9,11 +9,9 @@ of patent rights can be found in the PATENTS file in the same directory.
     Flux = require('flux')
     React = require('react')
     # TodoApp = require('./test/test.litcoffee')
-    TodoApp = require('./main_page/main.litcoffee')
-
-    # TodoApp = require('./components/TodoApp.react')
+    TrelliscopeApp = require('./main_page/main.litcoffee')
 
     React.render(
-      <TodoApp />,
+      <TrelliscopeApp />,
       document.getElementById('todoapp')
     )
