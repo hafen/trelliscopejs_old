@@ -7,6 +7,7 @@ Should contain info about cogmap
     React = require 'react'
 
     RightPanelPage = React.createClass
+      displayName: "RightPanelPage"
 
       render: ->
         <div className="right-panel">

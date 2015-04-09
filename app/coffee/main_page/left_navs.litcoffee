@@ -10,6 +10,7 @@ Contains navigations for the application
     dataLeftNav = require("../data/data_left_navigation.litcoffee")
 
     LeftNavsComponent = React.createClass
+      displayName: "LeftNavsComponent"
 
       render: ->
 

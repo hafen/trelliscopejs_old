@@ -12,6 +12,7 @@ Should be shell to application
     RightPanel = require("./right_panel.litcoffee")
 
     MainPage = React.createClass
+      displayName: "MainPage"
 
       render: ->
         <div>

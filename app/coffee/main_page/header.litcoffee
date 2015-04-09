@@ -7,6 +7,7 @@ contains top icon bar in main section
     React = require 'react'
 
     HeaderPage = React.createClass
+      displayName: "HeaderPage"
 
       render: ->
         <div className="navbar navbar-default navbar-fixed-top" role="navigation">

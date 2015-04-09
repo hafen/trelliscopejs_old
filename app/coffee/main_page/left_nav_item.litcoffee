@@ -8,6 +8,7 @@ Template for navigation items in the left side bar
     ReactPropTypes = React.PropTypes
 
     LeftNavItem = React.createClass
+      displayName: "LeftNavItem"
       propTypes:
         divLink:     ReactPropTypes.string.isRequired
         icon:        ReactPropTypes.string.isRequired
