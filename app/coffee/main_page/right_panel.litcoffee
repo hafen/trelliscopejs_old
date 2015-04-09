@@ -9,13 +9,13 @@ Should contain info about cogmap
     RightPanelPage = React.createClass
 
       render: ->
-        <div class="right-panel">
-          <div class="right-sticky">
-            <i class="icon-chevron-left" id="sticky-icon"></i>
+        <div className="right-panel">
+          <div className="right-sticky">
+            <i className="icon-chevron-left" id="sticky-icon"></i>
           </div>
-          <div class="right-panel-container">
+          <div className="right-panel-container">
             <h4>CogMap</h4>
-            <div class="cogmap-selectors shiny-template-output" id="cogMapOutput" data-post-render="cogMapOutputPostRender">
+            <div className="cogmap-selectors shiny-template-output" id="cogMapOutput" data-post-render="cogMapOutputPostRender">
             </div>
           </div>
         </div>

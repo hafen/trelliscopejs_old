@@ -16,11 +16,11 @@ Should be shell to application
       render: ->
         <div>
           <Header />
-          <div class="container">
+          <div className="container">
 
             <LeftNavs />
 
-            <div class="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender"></div>
+            <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender"></div>
 
             <RightPanel />
           </div>
