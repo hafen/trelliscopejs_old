@@ -7,7 +7,7 @@ Contains filter and labels in bottom of page
     React = require 'react'
 
     FooterPage = React.createClass
-      displayName: "FooterPage"
+      displayName: "Footer"
 
       render: ->
         <div id="footer">

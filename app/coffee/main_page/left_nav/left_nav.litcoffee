@@ -7,12 +7,11 @@ Contains navigations for the application
     React = require 'react'
 
     LeftNavGroup = require("./left_nav_group.litcoffee")
-    # dataLeftNav = require("../data/data_left_navigation.litcoffee")
-    LeftNavStore = require("../stores/store_left_nav.litcoffee")
+    LeftNavStore = require("../../stores/left_nav_store.litcoffee")
 
 
-    LeftNavsComponent = React.createClass
-      displayName: "LeftNavsComponent"
+    LeftNavComponent = React.createClass
+      displayName: "LeftNavigation"
 
       getInitialState: ->
         return {
@@ -25,12 +24,13 @@ Contains navigations for the application
         endDivs = []
         for navItem in @state.viewOptionsInfoArr
           endDivs.push(
-            <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
+            <div id={ navItem.divlink } key={navItem.divlink} className="slide-panel panel panel-default"></div>
           )
         for navItem in @state.cognosticsInfoArr
           endDivs.push(
-            <div id={ navItem.divlink } className="slide-panel panel panel-default"></div>
+            <div id={ navItem.divlink } key={navItem.divlink} className="slide-panel panel panel-default"></div>
           )
+        # add { endDivs } after wrapper.  This causes warning to appear.  divs above are place holders that will be deleted.
 
         <div>
           <div id="wrapper">
@@ -38,7 +38,6 @@ Contains navigations for the application
               <div id="logo">
                 <img src="assets/images/logo.svg" />
               </div>
-
               <div className="list-group list-group-sidebar">
                 <LeftNavGroup title="View Options"  navItems=@state.viewOptionsInfoArr key="view_options" />
 
@@ -47,10 +46,9 @@ Contains navigations for the application
 
             </div>
           </div>
-          { endDivs }
         </div>
 
 
-    module.exports = LeftNavsComponent
+    module.exports = LeftNavComponent
 
 

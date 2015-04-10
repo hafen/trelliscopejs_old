@@ -6,10 +6,13 @@ Should be shell to application
     # @litcoffee React.DOM
     React = require 'react'
 
-    Header = require("./header.litcoffee")
-    Footer = require("./footer.litcoffee")
-    LeftNavs = require("./left_navs.litcoffee")
+    Header = require("./etc/header.litcoffee")
+    Footer = require("./etc/footer.litcoffee")
+    LeftNav = require("./left_nav/left_nav.litcoffee")
     RightPanel = require("./right_panel.litcoffee")
+
+
+
 
     MainPage = React.createClass
       displayName: "MainPage"
@@ -19,7 +22,7 @@ Should be shell to application
           <Header />
           <div className="container">
 
-            <LeftNavs />
+            <LeftNav />
 
             <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender"></div>
 
