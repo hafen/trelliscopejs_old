@@ -29,6 +29,8 @@ var uglify      = require('broccoli-uglify-js');        // uglify the javascript
 
 var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
 var env         = require('broccoli-env').getEnv();     // get environment from compiler
+var replaceVal  = require('broccoli-replace');          // replaces things in files that start with @@
+
 
 var log = require('broccoli-stew').log;
 
@@ -62,8 +64,20 @@ var appJs = fastBrowserify('app/coffee', {
 appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
 
 
+
+// create tree for public folder (no filters needed here)
+var publicFiles = 'public'
+
+// create tree for public folder (no filters needed here)
+var htmlFiles = pickFiles('app', {srcDir: 'html', destDir: '/' });
+
+
+replaceValReplacement = "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>"
+
 // Sweet stuff for production environment
 if (env === 'production') {
+  replaceValReplacement = ""
+
   // minify js
   appJs = uglify(appJs, {
     // mangle: false,
@@ -75,22 +89,23 @@ if (env === 'production') {
   // compiledAppLess = splitCss(compiledAppLess)
 }
 
-
-// create tree for public folder (no filters needed here)
-var publicFiles = 'public'
-
-// create tree for public folder (no filters needed here)
-var htmlFiles = pickFiles('app', {srcDir: 'html', destDir: '/' });
+htmlFiles = replaceVal(htmlFiles, {
+  files: [
+    '**/*.html' // replace only html files
+  ],
+  patterns: [{
+    match: 'livereload',
+    replacement: replaceValReplacement
+  }]
+});
 
 // merge the trees
 var mergedTree = mergeTrees([publicFiles, compiledAppLess, appJs, htmlFiles])
 
 // if (env == "development") {
 //   var cjsx = require('broccoli-cjsx');
-
 //   var coffeeFilesDebug = pickFiles('app', {srcDir: 'coffee', destDir: '/assets/debug/js' });
 //   coffeeFilesDebug = cjsx(coffeeFilesDebug, {extensions: ['.litcoffee']});
-
 //   mergedTree = mergeTrees([mergedTree, coffeeFilesDebug])
 // }
 
