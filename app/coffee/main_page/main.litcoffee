@@ -6,12 +6,11 @@ Should be shell to application
     # @litcoffee React.DOM
     React = require 'react'
 
-    Header = require("./etc/header.litcoffee")
-    Footer = require("./etc/footer.litcoffee")
+    Header     = require("./etc/header.litcoffee")
+    Footer     = require("./etc/footer.litcoffee")
+    RightPanel = require("./etc/right_panel.litcoffee")
+
     LeftNav = require("./left_nav/left_nav.litcoffee")
-    RightPanel = require("./right_panel.litcoffee")
-
-
 
 
     MainPage = React.createClass
