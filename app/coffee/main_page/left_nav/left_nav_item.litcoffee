@@ -15,13 +15,14 @@ Template for navigation items in the left side bar
         title:       ReactPropTypes.string.isRequired
         description: ReactPropTypes.string.isRequired
         itemId:      ReactPropTypes.string.isRequired
+        htmlLink:    ReactPropTypes.string.isRequired
 
       prop_bodyId: -> return this.props.itemId + "Output"
       applyButton: -> return this.props.itemId + "ApplyButton"
       navLink:     -> return this.props.divLink + "-nav-link"
 
       render: ->
-        <a href="javascript:" className="list-group-item" data-divlink={@props.divlink} id={@props.itemId}>
+        <a href={@props.htmlLink} className="list-group-item" data-divlink={@props.divlink} id={@props.itemId}>
           <i className={@props.icon}></i>
           <span className="list-group-text">{ @props.title }</span>
         </a>

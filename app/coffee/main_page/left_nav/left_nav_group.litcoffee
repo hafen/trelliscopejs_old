@@ -27,6 +27,7 @@ Template for navigation items in the left side bar
             title       = navTitle
             description = navItem.description
             itemId      = navItem.itemId
+            htmlLink    = navItem.htmlLink
           />
           # itemDisplayArr.push(<br />)
 

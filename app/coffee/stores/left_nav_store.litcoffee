@@ -22,6 +22,7 @@
           description: "Specify the arrangement of the panels on each page by entering the number of rows and columns of panels per page.  Future functionality for fixing / varying levels of cognostics per page to come."
           itemId:      "panelLayout"
           divLink:     "panel-layout"
+          htmlLink:     "/panel_layout"
         }
         {
           icon:        "icon-panel-edit"
@@ -31,14 +32,16 @@
           itemId:      "panelFunction"
           divLink:     "panel-function"
           footer:      "Note: this feature is currently disabled - panels will not update when you click 'Apply'..."
+          htmlLink:     "/panel_function"
         }
         {
-          divLink:     "panel-function"
+          divLink:     "panel-labels"
           icon:        "icon-cog-list"
           title:       "Panel Labels"
           description: "Specify which cognostics to view underneath each panel. <br/>Select cognostics to view by clicking and/or dragging the 'Show' column."
           itemId:      "panelLabelList"
           footer:      "Note: this feature is currently disabled - panels will not update when you click 'Apply'..."
+          htmlLink:     "/panel_labels"
         }
         {
           divLink:     "add-related-display"
@@ -46,6 +49,7 @@
           title:       "Related Displays"
           description: "Select additional displays (if any) that have been created on the same partitioning to view with the currently selected display.  If additional displays are selected, only one subset per page will be shown."
           itemId:      "relatedDisplayList"
+          htmlLink:     "/related_displays"
         }
       ]
 
@@ -56,6 +60,7 @@
           title:       "Active Cognostics"
           description: "Specify which cognostics are available for sorting, filtering, and sampling."
           itemId:      "activeCogList"
+          htmlLink:     "/active_cognostics"
         }
         {
           divLink:     "cog-table-sort-filter"
@@ -64,6 +69,7 @@
           title:       "Cognostics View / Sort / Filter"
           description: "View cognostics in a table and specify sort order or filtering of panels.  <br/>Shift-click on the panel header sorting buttons for multi-column sorting."
           itemId:      "cogTableControls"
+          htmlLink:     "/table_sort_filter"
         }
         {
           divLink:     "univar-filter"
@@ -72,6 +78,7 @@
           title:       "Visual Univariate Filter"
           description: "Filter panels based on a single cognostic guided by a visual display of the distribution of the cognostic.  <br/>Select a variable to view and click and drag on the display to specify filtering."
           itemId:      "cogUniFilterControls"
+          htmlLink:     "/univariate_filter"
         }
         {
           divLink:     "bivar-filter"
@@ -80,6 +87,7 @@
           title:       "Visual Bivariate Filter"
           description: "Filter panels based on pairs of cognostics through an interactive scatterplot.  <br/>Currently only quantitative variables are supported."
           itemId:      "cogBiFilterControls"
+          htmlLink:     "/bivariate_filter"
         }
         {
           divLink:     "multivar-filter"
@@ -89,6 +97,7 @@
           description: "Filter panels based on a two-dimensional projection pursuit of multiple quantitative cognostics.  <br/>This can help uncover interesting regions of the cognostics space."
           itemId:      "cogMultiFilterControls"
           footer:      "Note: this interactive filter is not yet bound to the back-end - panels will not update when you click 'Apply'..."
+          htmlLink:     "/multivariate_filter"
         }
         {
           divLink:     "sample-panels"
@@ -97,6 +106,7 @@
           title:       "Sample Panels"
           description: "Specify how to sample from panels in their current sorted and filtered state (coming soon)."
           itemId:      "cogSampleControls"
+          htmlLink:     "/sample"
         }
       ]
 
