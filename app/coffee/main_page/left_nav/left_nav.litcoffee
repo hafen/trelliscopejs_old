@@ -6,8 +6,8 @@ Contains navigations for the application
     # @litcoffee React.DOM
     React = require 'react'
 
-    LeftNavGroup = require("./left_nav_group.litcoffee")
-    LeftNavStore = require("../../stores/left_nav_store.litcoffee")
+    LeftNavGroup = require "./left_nav_group.litcoffee"
+    LeftNavStore = require "../../stores/left_nav_store.litcoffee"
 
 
     LeftNavComponent = React.createClass
