@@ -5,7 +5,8 @@
 /tmp
 /public_test
 /browserify_bundle.js
-/build
+/build_dev
+/build_prod
 
 # dependencies
 /node_modules

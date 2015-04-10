@@ -52,9 +52,10 @@
   },
   "scripts": {
     "start": "broccoli serve",
-    "bbuild": "rm -r build/; broccoli build build",
+    "build_dev": "rm -r build_dev/; broccoli build build_dev",
+    "build_prod": "rm -r build_prod/; BROCCOLI_ENV=production broccoli build build_prod",
     "bfy": "browserify . > browserify_bundle.js",
-    "postinstall": "npm run-script bbuild",
+    "postinstall": "npm run-script build_dev; npm run-script build_prod",
     "test": "jest"
   },
   "jest": {
