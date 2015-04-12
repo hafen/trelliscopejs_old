@@ -7,7 +7,7 @@ Template for navigation items in the left side bar
     React = require 'react'
     ReactPropTypes = React.PropTypes
 
-    LeftNavItem = require("./left_nav_item.litcoffee")
+    LeftNavItem = require "./left_nav_item.litcoffee"
 
     LeftNavGroup = React.createClass
       displayName: "LeftNavGroup"
