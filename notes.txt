@@ -1,3 +1,40 @@
+# Rules to live by
+https://github.com/planningcenter/react-patterns
+  1. Formatting Props - Wrap props on newlines for exactly 2 or more.
+    Person({firstName: "Michael"})
+    Person {
+      firstName: "Michael"
+      lastName:  "Jordan"
+    }
+  2. Computed Props - Name computed prop methods with the get prefix.
+    getFullName: ->
+      "#{@props.firstName} #{@props.lastname}"
+  3. Compound State - Name compound state methods with the is, has or can prefix. These methods should return a boolean value.
+    isWillingSongParticipant: ->
+      @state.happy and @state.knowsIt
+  4. Sub-render - Use sub-render methods to isolate logical chunks of component UI.
+    render: ->
+      React.DOM.ul(null, @renderItems())
+
+    renderItems: ->
+      for itemText in @props.items
+        React.DOM.li(null, itemText)
+  5. Cached State in render - Do not keep state in render
+    getFormattedBirthDate: ->
+      moment(@props.user.bday).format(LL);
+    render: ->
+      React.DOM.div(null, @getFormattedBirthDate())
+  6. Compound Conditions - Do not put compound conditions in render.
+    isLikeTotallyHappy: ->
+      @state.happy and @state.knowsIt
+    render: ->
+      if @isLikeTotallyHappy()
+        React.DOM.div(null, "Knows what it's all about.")
+  7. Naming Handler Methods - Name the handler methods after their triggering event. Handler names should: begin with handle, end with the name of the event they handle (eg, Click, Change), and be present-tense
+    # good
+    render: ->
+      React.DOM.div
+        onClick: @handleClick
 
 
 
