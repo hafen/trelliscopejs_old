@@ -2,6 +2,13 @@
 
 Explaination of all routes in application
 
+# Notes
+
+* All routes must be done similar to Ember.js formatting.
+* There is an "```{{outlet}}```" or ```<RouteHandler/>``` for nested routes.
+* The router page will pull in all 'routes' and organize them accordingly.
+* Each page will not know about eachother, except for through the router.
+
 # Base Url
 
 may need to follow pattern: /s/*:groupName*/*:projectName*
