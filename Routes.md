@@ -9,6 +9,8 @@ Explaination of all routes in application
 * The router page will pull in all 'routes' and organize them accordingly.
 * Each page will not know about eachother, except for through the router.
 
+* using a hash system doesn't prevent future use of regular urls if a server was provided.
+
 # Base Url
 
 may need to follow pattern: /s/*:groupName*/*:projectName*
