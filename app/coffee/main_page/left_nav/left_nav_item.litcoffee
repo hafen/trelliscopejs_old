@@ -7,6 +7,10 @@ Template for navigation items in the left side bar
     React = require 'react'
     ReactPropTypes = React.PropTypes
 
+    Router = require('react-router')
+    Link = Router.Link
+
+
     LeftNavItem = React.createClass
       displayName: "LeftNavItem"
       propTypes:
@@ -22,9 +26,9 @@ Template for navigation items in the left side bar
       navLink:     -> return this.props.divLink + "-nav-link"
 
       render: ->
-        <a href={ @props.htmlLink } className="list-group-item" data-divlink={ @props.divlink } id={ @props.itemId }>
+        <Link to={ @props.htmlLink } className="list-group-item" data-divlink={ @props.divlink } id={ @props.itemId }>
           <i className={ @props.icon }></i>
           <span className="list-group-text">{ @props.title }</span>
-        </a>
+        </Link>
 
     module.exports = LeftNavItem
