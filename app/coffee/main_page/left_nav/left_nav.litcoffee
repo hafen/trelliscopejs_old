@@ -5,6 +5,7 @@ Contains navigations for the application
 
     # @litcoffee React.DOM
     React = require 'react'
+    _     = require 'underscore'
 
     LeftNavGroup = require "./left_nav_group.litcoffee"
     LeftNavStore = require "../../stores/left_nav_store.litcoffee"
@@ -13,25 +14,24 @@ Contains navigations for the application
     LeftNavComponent = React.createClass
       displayName: "LeftNavigation"
 
-      getInitialState: ->
-        return {
-          viewOptionsInfoArr: LeftNavStore.getAllViewOptions()
-          cognosticsInfoArr:  LeftNavStore.getAllCognostics()
-        }
+      getViewOptionsInfoArr: _.once(-> return LeftNavStore.getAllViewOptions())
+      getCognosticsInfoArr: _.once(-> return LeftNavStore.getAllCognostics())
 
-      render: ->
-
+      getEndDivs: ->
         endDivs = []
-        for navItem in @state.viewOptionsInfoArr
+        for navItem in @getViewOptionsInfoArr()
           endDivs.push(
             <div id={ navItem.divlink } key={navItem.divlink} className="slide-panel panel panel-default"></div>
           )
-        for navItem in @state.cognosticsInfoArr
+        for navItem in @cognosticsInfoArr()
           endDivs.push(
             <div id={ navItem.divlink } key={navItem.divlink} className="slide-panel panel panel-default"></div>
           )
         # add { endDivs } after wrapper.  This causes warning to appear.  divs above are place holders that will be deleted.
+        endDivs
 
+
+      render: ->
         <div>
           <div id="wrapper">
             <div id="sidebar-wrapper">
@@ -39,9 +39,9 @@ Contains navigations for the application
                 <img src="assets/images/logo.svg" />
               </div>
               <div className="list-group list-group-sidebar">
-                <LeftNavGroup title="View Options"  navItems=@state.viewOptionsInfoArr key="view_options" />
+                <LeftNavGroup title="View Options" navItems=@getViewOptionsInfoArr() key="view_options" />
 
-                <LeftNavGroup title="Cognostics"    navItems=@state.cognosticsInfoArr  key="view_cognostics" />
+                <LeftNavGroup title="Cognostics"   navItems=@getCognosticsInfoArr()  key="view_cognostics" />
               </div>
 
             </div>
