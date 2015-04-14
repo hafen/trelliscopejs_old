@@ -5,7 +5,7 @@ Should be shell to application
 
     # @litcoffee React.DOM
     React = require 'react'
-    Router = require('director').Router
+    {DefaultRoute, Link, Route, RouteHandler, run} = require('react-router')
 
     Header     = require "./etc/header.litcoffee"
     Footer     = require "./etc/footer.litcoffee"
@@ -17,40 +17,6 @@ Should be shell to application
     MainPage = React.createClass
       displayName: "MainPage"
 
-      # componentDidMount: ->
-      #   routes = {
-      #     '/related_displays':  ->
-      #       console.log("related displays!")
-      #       return
-
-      #     '/panel_function': [
-      #       ->
-      #         console.log("books page!")
-      #         return
-
-      #       ->
-      #         console.log("An inline route handler.")
-      #         return
-      #     ]
-      #     '/panel_labels': ->
-      #         console.log("panel labels!")
-      #         return
-      #     '/panel_layout': ->
-      #         console.log("panel layout!")
-      #         return
-      #     '/books/view/:bookId': (bookId) ->
-      #       console.log("viewBook: bookId is populated: " + bookId)
-      #       return
-      #   }
-
-      #   # router = Router(routes)#.configure({html5history: yes})
-      #   # router.init('/')
-      #   # console.log(routes)
-
-      #   # window.router = router
-      #   return
-
-
       render: ->
         <div>
           <Header />
@@ -58,18 +24,14 @@ Should be shell to application
 
             <LeftNav />
 
-            <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender"></div>
+            <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
+              <RouteHandler/>
+            </div>
 
             <RightPanel />
           </div>
           <Footer />
         </div>
-
-
-
-
-
-
 
 
     module.exports = MainPage

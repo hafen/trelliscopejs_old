@@ -9,20 +9,10 @@ of patent rights can be found in the PATENTS file in the same directory.
     Flux = require('flux')
     React = require('react')
 
-    Router = require('react-router')
-
-    DefaultRoute  = Router.DefaultRoute;
-    Link          = Router.Link;
-    Route         = Router.Route;
-    RouteHandler  = Router.RouteHandler;
+    {DefaultRoute, Link, Route, RouteHandler, run} = require('react-router')
 
     TodoApp = require('./test/test.litcoffee')
     TrelliscopeApp = require('./main_page/main.litcoffee')
-
-    # React.render(
-    #   <TrelliscopeApp />,
-    #   document.getElementById('todoapp')
-    # )
 
       # <Route handler={App} path="/">
       #   <DefaultRoute handler={TrelliscopeApp} />
@@ -38,14 +28,8 @@ of patent rights can be found in the PATENTS file in the same directory.
 
 
 
-    App = React.createClass
-      displayName: "App"
-
-      render: ->
-        <RouteHandler/>
-
     routes = (
-      <Route name="app" path="/" handler={App}>
+      <Route name="app" path="/" handler={TrelliscopeApp}>
         <Route name="Panel_Function" path="/panel_function" handler={TodoApp}/>
         <DefaultRoute handler={TrelliscopeApp}/>
       </Route>
@@ -59,7 +43,7 @@ of patent rights can be found in the PATENTS file in the same directory.
     #   return
 
     # Must run with hashtag as broccoli doesn't know how to refresh a single app page
-    Router.run routes, (Handler) ->
+    run routes, (Handler) ->
       React.render(<Handler/>, document.getElementById('todoapp'))
       return
 
