@@ -112,8 +112,17 @@
 
     }
 
+    _dataById = {}
+    for key, infoArr of _data
+      for item in infoArr
+        _dataById[item.itemId] = item
+
+
 
     NavStore = assign {}, EventEmitter.prototype, {
+
+      get_single_item_by_id: (id) ->
+        return _dataById[id]
 
       # /**
       #  * Get the entire collection of view options
