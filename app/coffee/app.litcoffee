@@ -26,10 +26,12 @@ of patent rights can be found in the PATENTS file in the same directory.
       #   <Redirect from="company" to="about" />
       # </Route>
 
+    PanelLayout = require './main_page/related_displays/panel_layout.litcoffee'
 
 
     routes = (
       <Route name="app" path="/" handler={TrelliscopeApp}>
+        <Route name="Panel_Layout" path="/panel_layout" handler={PanelLayout}/>
         <Route name="Panel_Function" path="/panel_function" handler={TodoApp}/>
         <DefaultRoute handler={TrelliscopeApp}/>
       </Route>
