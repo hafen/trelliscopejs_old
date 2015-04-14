@@ -133,7 +133,7 @@
 
 
       # /**
-      #  * Get the entire collection of view options
+      #  * Get the entire collection of cognostics view options
       #  * @return {array}
       #  */
       getAllCognostics: ->
