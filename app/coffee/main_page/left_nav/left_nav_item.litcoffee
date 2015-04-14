@@ -26,7 +26,8 @@ Template for navigation items in the left side bar
       navLink:     -> return @props.divLink + "-nav-link"
 
       render: ->
-        <Link to={ @props.htmlLink } className="list-group-item" data-divlink={ @props.divlink } id={ @props.itemId }>
+        # <Link to={ @props.htmlLink } className="list-group-item" data-divlink={ @props.divlink } id={ @props.itemId }>
+        <Link to={ @props.htmlLink } className="list-group-item" >
           <i className={ @props.icon }></i>
           <span className="list-group-text">{ @props.title }</span>
         </Link>
