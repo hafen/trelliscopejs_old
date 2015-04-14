@@ -21,9 +21,9 @@ Template for navigation items in the left side bar
         itemId:      ReactPropTypes.string.isRequired
         htmlLink:    ReactPropTypes.string.isRequired
 
-      prop_bodyId: -> return this.props.itemId + "Output"
-      applyButton: -> return this.props.itemId + "ApplyButton"
-      navLink:     -> return this.props.divLink + "-nav-link"
+      prop_bodyId: -> return @props.itemId + "Output"
+      applyButton: -> return @props.itemId + "ApplyButton"
+      navLink:     -> return @props.divLink + "-nav-link"
 
       render: ->
         <Link to={ @props.htmlLink } className="list-group-item" data-divlink={ @props.divlink } id={ @props.itemId }>
