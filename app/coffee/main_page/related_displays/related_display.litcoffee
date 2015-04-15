@@ -11,11 +11,6 @@ All "modal" pages will be rendered using the same style... just diff content
     RelatedDisplay = React.createClass
       displayName: "Related_Display"
 
-      cancelFunction: ->
-        return null
-      applyFunction: ->
-        return null
-
       propTypes:
         # divLink:     ReactPropTypes.string.isRequired
         icon:         ReactPropTypes.string.isRequired
