@@ -8,6 +8,7 @@ All "modal" pages will be rendered using the same style... just diff content
     _     = require 'underscore'
     ReactPropTypes = React.PropTypes
 
+
     RelatedDisplay = React.createClass
       displayName: "Related_Display"
 
@@ -50,17 +51,26 @@ All "modal" pages will be rendered using the same style... just diff content
       render_main_class: ->
         return "panel-body shiny-template-output shiny-bound-output"
 
-
-
       render: ->
-        # <div className="slide-panel panel panel-default slide-left">
-        <div className="slide-panel panel panel-default slide-left">
-          { @render_top({title: @props.title, description: @props.description, icon: @props.icon}) }
-          <div className={ @render_main_class() } >
-            {@props.bodyContent}
+          # <div className="slide-panel panel panel-default slide-left">
+
+        <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
+
+          <div className="related-display-container panel panel-default">
+
+            { @render_top({title: @props.title, description: @props.description, icon: @props.icon}) }
+
+            <div className={ @render_main_class() } >
+
+              {@props.bodyContent}
+
+            </div>
+
+            { @render_bottom() }
+
           </div>
-          { @render_bottom() }
         </div>
+
 
     # RelatedDisplayFactory = React.createFactory(RelatedDisplay)
     # module.exports = RelatedDisplayFactory

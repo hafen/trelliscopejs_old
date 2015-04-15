@@ -7,7 +7,6 @@ Should be shell to application
     React = require 'react'
     {DefaultRoute, Link, Route, RouteHandler, run} = require('react-router')
 
-    Header     = require "./etc/header.litcoffee"
     Footer     = require "./etc/footer.litcoffee"
     RightPanel = require "./etc/right_panel.litcoffee"
 
@@ -19,14 +18,11 @@ Should be shell to application
 
       render: ->
         <div>
-          <Header />
           <div className="container">
 
             <LeftNav />
 
-            <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
-              <RouteHandler/>
-            </div>
+            <RouteHandler/>
 
             <RightPanel />
           </div>

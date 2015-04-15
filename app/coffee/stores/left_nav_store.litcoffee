@@ -112,6 +112,11 @@
 
     }
 
+    for item in _data.viewOptionsInfoArr
+      item.htmlLink = "/view_options" + item.htmlLink
+    for item in _data.cognosticsInfoArr
+      item.htmlLink = "/cognostics" + item.htmlLink
+
     _dataById = {}
     for key, infoArr of _data
       for item in infoArr

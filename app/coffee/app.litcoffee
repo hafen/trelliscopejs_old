@@ -9,7 +9,7 @@ of patent rights can be found in the PATENTS file in the same directory.
     Flux = require('flux')
     React = require('react')
 
-    {DefaultRoute, Link, Route, RouteHandler, run} = require('react-router')
+    {DefaultRoute, Link, Route, Redirect, RouteHandler, run} = require('react-router')
 
     TodoApp = require('./test/test.litcoffee')
     TrelliscopeApp = require('./main_page/main.litcoffee')
@@ -26,14 +26,19 @@ of patent rights can be found in the PATENTS file in the same directory.
       #   <Redirect from="company" to="about" />
       # </Route>
 
-    PanelLayout = require './main_page/related_displays/panel_layout.litcoffee'
+    NullHandler     = require './main_page/etc/null_handler.litcoffee'
+    PanelLayout     = require './main_page/related_displays/panel_layout.litcoffee'
+    SingleDataPage  = require './main_page/single_page/single_page.litcoffee'
 
 
     routes = (
       <Route name="app" path="/" handler={TrelliscopeApp}>
-        <Route name="Panel_Layout" path="/panel_layout" handler={PanelLayout}/>
-        <Route name="Panel_Function" path="/panel_function" handler={TodoApp}/>
-        <DefaultRoute handler={TrelliscopeApp}/>
+        <Route name="View_Options" path="/view_options" handler={NullHandler}>
+          <Route name="Panel_Layout" path="panel_layout" handler={PanelLayout}/>
+          <Route name="Panel_Function" path="panel_function" handler={TodoApp}/>
+        </Route>
+        <DefaultRoute handler={SingleDataPage}/>
+        <Redirect from="/view_options" to="/view_options/panel_function" />
       </Route>
     )
 
