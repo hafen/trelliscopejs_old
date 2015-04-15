@@ -144,8 +144,7 @@
               { @render_table({rowNum, colNum}) }
             </div>
           </div>
-          <div className="clear">
-          </div>
+          <div className="clear"></div>
         </div>
 
 
