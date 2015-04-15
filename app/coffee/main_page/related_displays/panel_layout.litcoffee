@@ -135,7 +135,7 @@
             <div id="panel-layout-toggle">
               <div className="btn-group" id="panelArrangement">
                 <button type="button" className={rowPanelArrClass} onClick={@handle_by_row}>By Row</button>
-                <button type="button" className={colPanelArrClass} onClick={@handle_by_column}>By Column</button>
+                <button type="button" className={colPanelArrClass} onClick={@handle_by_col}>By Column</button>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content({rows: 1, columns: 1}) }
+          bodyContent={ @render_body_content({rowNum: 1, colNum: 1, isByRow: yes}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
