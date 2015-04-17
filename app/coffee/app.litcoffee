@@ -28,14 +28,16 @@ of patent rights can be found in the PATENTS file in the same directory.
 
     NullHandler     = require './main_page/etc/null_handler.litcoffee'
     PanelLayout     = require './main_page/related_displays/panel_layout.litcoffee'
+    PanelFunction   = require './main_page/related_displays/panel_function.litcoffee'
     SingleDataPage  = require './main_page/single_page/single_page.litcoffee'
 
 
     routes = (
       <Route name="app" path="/" handler={TrelliscopeApp}>
         <Route name="View_Options" path="/view_options" handler={NullHandler}>
-          <Route name="Panel_Layout" path="panel_layout" handler={PanelLayout}/>
-          <Route name="Panel_Function" path="panel_function" handler={TodoApp}/>
+          <Route name="Panel_Layout_Route"   path="panel_layout" handler={PanelLayout}/>
+          <Route name="Panel_Function_Route" path="panel_function" handler={PanelFunction}/>
+          <Route name="Panel_Table" path="panel_table" handler={TodoApp}/>
         </Route>
         <DefaultRoute handler={SingleDataPage}/>
         <Redirect from="/view_options" to="/view_options/panel_function" />
