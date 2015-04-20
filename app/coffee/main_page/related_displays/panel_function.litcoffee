@@ -20,17 +20,24 @@ This is currently disabled. :-\
     LeftNavStore = require "../../stores/left_nav_store.litcoffee"
 
 
+
+
     PanelFunction = React.createClass
       displayName: "Panel_Function"
 
       navInfo: _.once ->
         dt = LeftNavStore.get_single_item_by_id("panelFunction")
-        console.log("dt: ", dt)
+        # console.log("dt: ", dt)
         return dt
 
       render_icon:        _.once( -> return @navInfo().icon)
       render_title:       _.once( -> return @navInfo().title)
       render_description: _.once( -> return @navInfo().description)
+
+      componentWillMount: ->
+        ace.config.set("basePath", "/assets/ace_editor")
+        # editor.getSession().setMode('r')
+
 
       handle_cancel: ->
         console.log("Panel Function cancel hit!")
@@ -42,8 +49,6 @@ This is currently disabled. :-\
       handle_editor_onload: (editor) ->
         # console.log(editor)
         # window.editor = editor
-        # ace.config.set("basePath", "/assets/ace_editor")
-        # editor.getSession().setMode('r')
         return
 
       handle_editor_change: (newValue) ->
@@ -51,65 +56,52 @@ This is currently disabled. :-\
         return
 
       get_function_value: ->
-        return "obj <- \"yellow\"\nobj"
+        return "library(memoise)" + "\n" +
+          "" + "\n" +
+          "fib <- function(n) {" + "\n" +
+          "  if (n < 2) {" + "\n" +
+          "    return(1)" + "\n" +
+          "  }" + "\n" +
+          "  return(fib(n-1) * fib(n - 2))" + "\n" +
+          "}" + "\n" +
+          "" + "\n" +
+          "system.time({fib(30)})" + "\n" +
+          "" + "\n" +
+          "" + "\n" +
+          "fib_m <- memoise(function(n) {" + "\n" +
+          "  if (n < 2) {" + "\n" +
+          "    return(1)" + "\n" +
+          "  }" + "\n" +
+          "  return(fib_m(n-1) * fib_m(n - 2))" + "\n" +
+          "})" + "\n" +
+          "system.time({fib_m(30)})" + "\n"
+
 
 
       render_body_content:  ->
-        return "Content!"
+        <AceEditor
+          key="ace_editor"
+          mode="r"
+          theme="tomorrow"
+          onChange={@handle_editor_change}
+          onLoad={@handle_editor_onload}
+          name="panel_function_editor"
+          value={@get_function_value()}
+        />
+
 
 
       render: ->
-              # <RelatedDisplay
-              #   icon={ @render_icon() }
-              #   title={ @render_title() }
-              #   description={ @render_description() }
-              #   bodyContent={ @render_body_content() }
-              #   onCancel={ @handle_cancel }
-              #   onApply={ @handle_apply }
-              # />
+        <RelatedDisplay
+          key={"Panel_Function_Related_Display"}
+          icon={ @render_icon() }
+          title={ @render_title() }
+          description={ @render_description() }
+          bodyContent={ @render_body_content() }
+          onCancel={ @handle_cancel }
+          onApply={ @handle_apply }
+        />
 
-
-        <div className="shiny-template-output" id="panelTableContentOutput" data-post-render="panelTableContentOutputPostRender">
-
-          <div className="related-display-container panel panel-default">
-
-            <div className="panel-heading">
-              <div className="panel-left">
-                <span className="slide-icon">
-                  <i className={ @render_icon() }></i>
-                </span>
-                <h1>{ @render_title() }</h1>
-                <p>{ @render_description() }</p>
-              </div>
-              <div className="panel-right">
-                <a href="javascript:" className="btn-panel-close">
-                  <span className="panel-close"><i className="icon-times"></i></span>
-                </a>
-              </div>
-            </div>
-
-            <div className="panel-body shiny-template-output shiny-bound-output" >
-              <AceEditor
-                mode="javascript"
-                theme="tomorrow"
-                onChange={@handle_editor_change}
-                onLoad={@handle_editor_onload}
-                name="panel_function_editor"
-                value={@get_function_value()}
-              />
-
-            </div>
-
-            <div className="panel-footer">
-              <div className="pull-left control-footer"></div>
-              <div className="pull-right">
-                <button type="button" className="btn btn-default btn-panel-close" data-action="panelLayoutOutputCancelButton" onClick={@handle_cancel}>Cancel</button>
-                <button type="button" className="btn btn-primary btn-panel-apply" data-action="panelLayoutOutputApplyButton" onClick={@handle_apply}>Apply</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
 
 
