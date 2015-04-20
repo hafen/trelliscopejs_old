@@ -15,7 +15,7 @@
 
       navInfo: _.once ->
         dt = LeftNavStore.get_single_item_by_id("panelLayout")
-        console.log("dt: ", dt)
+        # console.log("dt: ", dt)
         return dt
 
       render_icon:        _.once( -> return @navInfo().icon)
@@ -41,7 +41,7 @@
       handle_row_change: ->
         console.log("Panel Layout handle_row_change hit!")
         return null
-      handle_col_change: ->
+      handle_column_change: ->
         console.log("Panel Layout handle_col_change hit!")
         return null
 
@@ -59,22 +59,22 @@
         isByRow = yes
         console.log "update store with value #{isByRow}!"
         return
-      handle_by_col: () ->
+      handle_by_column: () ->
         isByRow = no
         console.log "update store with value #{isByRow}!"
         return
 
       render_table: ({rowNum, colNum}) ->
-        rowVal = []
-        for j in [1..colNum]
-          rowVal.push(
-            <td></td>
-          )
 
         bodyVal = []
         for i in [1..rowNum]
+          rowVal = []
+          for j in [1..colNum]
+            rowVal.push(
+              <td key={"table_row_#{i}_#{j}"}></td>
+            )
           bodyVal.push(
-            <tr>{ rowVal }</tr>
+            <tr key={"table_col_#{i}"}>{ rowVal }</tr>
           )
 
         # <table className="panel-layout-preview-table" style="width:103px; height:126.1899109792285px">
@@ -135,7 +135,7 @@
             <div id="panel-layout-toggle">
               <div className="btn-group" id="panelArrangement">
                 <button type="button" className={rowPanelArrClass} onClick={@handle_by_row}>By Row</button>
-                <button type="button" className={colPanelArrClass} onClick={@handle_by_col}>By Column</button>
+                <button type="button" className={colPanelArrClass} onClick={@handle_by_column}>By Column</button>
               </div>
             </div>
           </div>
@@ -151,6 +151,7 @@
 
       render: ->
         <RelatedDisplay
+          key={"Panel_Layout_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
