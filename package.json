@@ -48,10 +48,10 @@
     ]
   },
   "scripts": {
-    "start": "broccoli serve",
-    "build_dev": "rm -r build_dev/; broccoli build build_dev",
-    "build_prod": "rm -r build_prod/; BROCCOLI_ENV=production broccoli build build_prod",
-    "bfy": "browserify . > browserify_bundle.js",
+    "start": "node_modules/.bin/broccoli serve",
+    "build_dev": "rm -r build_dev/; node_modules/.bin/broccoli build build_dev",
+    "build_prod": "rm -r build_prod/; BROCCOLI_ENV=production node_modules/.bin/broccoli build build_prod",
+    "bfy": "node_modules/.bin/browserify . > browserify_bundle.js",
     "postinstall": "npm run-script build_dev; npm run-script build_prod",
     "test": "jest"
   },
