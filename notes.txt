@@ -1,8 +1,13 @@
+# Errors on handling EMFILE Error
+main issue here:            https://github.com/substack/node-browserify/issues/431
+actually being solved here: https://github.com/substack/node-browserify/issues/1003
+Fix:
+  ulimit -n 2048
+
+
 # Info on url hashing
 https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling
 # we can do this solution right now as we do not have a server.  If we had a server, we could do regular urls.
-
-
 
 
 # Rules to live by
