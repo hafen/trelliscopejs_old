@@ -33,7 +33,7 @@
     "jest-cli": "~0.1.17",
     "object-assign": "^1.0.0",
     "react": "^0.13.1",
-    "react-ace": "^1.1.5",
+    "react-ace": "schloerke/react-ace#trelliscope",
     "react-router": "^0.13.2",
     "underscore": "~1.8.2"
   },
