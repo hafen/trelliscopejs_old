@@ -35,8 +35,7 @@ This is currently disabled. :-\
       render_description: _.once( -> return @navInfo().description)
 
       componentWillMount: ->
-        ace.config.set("basePath", "/assets/ace_editor")
-        # editor.getSession().setMode('r')
+        return
 
 
       handle_cancel: ->
