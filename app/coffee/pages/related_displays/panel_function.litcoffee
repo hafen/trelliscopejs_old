@@ -12,6 +12,11 @@ This is currently disabled. :-\
 
     AceEditor = require 'react-ace'
 
+    # must be required after AceEditor!
+    brace = require 'brace'
+    require("brace/mode/r")
+    require("brace/theme/tomorrow")
+
     RelatedDisplay = require "./related_display.litcoffee"
     LeftNavStore = require "../../stores/left_nav_store.litcoffee"
 

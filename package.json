@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "~3.3.1",
+    "brace": "^0.5.1",
     "broccoli": "^0.15.3",
     "broccoli-cjsx": "0.0.2",
     "broccoli-clean-css": "^1.0.0",
@@ -33,7 +34,7 @@
     "jest-cli": "~0.1.17",
     "object-assign": "^1.0.0",
     "react": "^0.13.1",
-    "react-ace": "schloerke/react-ace#trelliscope",
+    "react-ace": "schloerke/react-ace#dev",
     "react-router": "^0.13.2",
     "underscore": "~1.8.2"
   },
