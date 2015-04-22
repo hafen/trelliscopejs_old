@@ -12,7 +12,7 @@ of patent rights can be found in the PATENTS file in the same directory.
     {DefaultRoute, Link, Route, Redirect, RouteHandler, run} = require('react-router')
 
     TodoApp = require('./test/test.litcoffee')
-    TrelliscopeApp = require('./main_page/main.litcoffee')
+    TrelliscopeApp = require('./pages/main.litcoffee')
 
       # <Route handler={App} path="/">
       #   <DefaultRoute handler={TrelliscopeApp} />
@@ -26,10 +26,10 @@ of patent rights can be found in the PATENTS file in the same directory.
       #   <Redirect from="company" to="about" />
       # </Route>
 
-    NullHandler     = require './main_page/etc/null_handler.litcoffee'
-    PanelLayout     = require './main_page/related_displays/panel_layout.litcoffee'
-    PanelFunction   = require './main_page/related_displays/panel_function.litcoffee'
-    SingleDataPage  = require './main_page/single_page/single_page.litcoffee'
+    NullHandler     = require './pages/etc/null_handler.litcoffee'
+    PanelLayout     = require './pages/related_displays/panel_layout.litcoffee'
+    PanelFunction   = require './pages/related_displays/panel_function.litcoffee'
+    SingleDataPage  = require './pages/single_page/single_page.litcoffee'
 
 
     routes = (
