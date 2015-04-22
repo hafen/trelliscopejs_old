@@ -10,10 +10,6 @@ This is currently disabled. :-\
     React = require 'react'
     _     = require 'underscore'
 
-    # brace     = require 'brace'
-    # require('brace/mode/r')
-    # require('brace/theme/tomorrow')
-
     AceEditor = require 'react-ace'
 
     RelatedDisplay = require "./related_display.litcoffee"
