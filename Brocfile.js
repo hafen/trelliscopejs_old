@@ -13,11 +13,11 @@
 // var assetRev    = require('broccoli-asset-rev');           // change file name for new sources
 // https://github.com/rickharrison/broccoli-asset-rev
 
-// var concat      = require('broccoli-concat');           // concat many files
-var pickFiles      = require('broccoli-static-compiler');  // static file compiler
+// var concat    = require('broccoli-concat'); // concat many files
+var pickFiles = require('broccoli-static-compiler'); // static file compiler
 
 var fastBrowserify = require('broccoli-fast-browserify'); // js
-var lessCompiler = require('broccoli-less');              // less
+var lessCompiler   = require('broccoli-less'); // less
 
 // var splitCss    = require('broccoli-csssplit');      // split css files into many files, if necessary
 // https://github.com/aboekhoff/broccoli-csssplit
@@ -25,19 +25,16 @@ var lessCompiler = require('broccoli-less');              // less
 
 var cleanCss    = require('broccoli-clean-css');      // css file compressor... clean!: https://github.com/jakubpawlowicz/clean-css#what-is-clean-css
 
-var uglify      = require('broccoli-uglify-js');        // uglify the javascript
+// uglify the javascript
+var uglify = require('broccoli-uglify-js');
 
-var mergeTrees  = require('broccoli-merge-trees');      // static file compiler
-var env         = require('broccoli-env').getEnv();     // get environment from compiler
-var replaceVal  = require('broccoli-replace');          // replaces things in files that start with @@
+var mergeTrees = require('broccoli-merge-trees'); // static file compiler
+var env        = require('broccoli-env').getEnv(); // get environment from compiler
+var replaceVal = require('broccoli-replace'); // replaces things in files that start with @@
 
 
 var log = require('broccoli-stew').log;
 
-    // "jquery": "^1.11.1",
-    // "qunit": "~1.17.1",
-    // "bootstrap": "~3.3.1",
-    // "underscore": "~1.8.2"
 
 // Styles
 // var compileLess    = require('broccoli-less-single');      // less file compiler
@@ -64,9 +61,9 @@ var appJs = fastBrowserify('app/coffee', {
 appJs = log(appJs, { output: 'tree', label: 'js_files_compiled tree' });
 
 
-
 // create tree for public folder (no filters needed here)
 var publicFiles = 'public'
+
 
 // create tree for public folder (no filters needed here)
 var htmlFiles = pickFiles('app', {srcDir: 'html', destDir: '/' });
@@ -94,7 +91,7 @@ htmlFiles = replaceVal(htmlFiles, {
     '**/*.html' // replace only html files
   ],
   patterns: [{
-    match: 'livereload',
+    match      : 'livereload',
     replacement: replaceValReplacement
   }]
 });

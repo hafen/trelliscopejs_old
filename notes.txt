@@ -93,5 +93,3 @@ http://feedback.livereload.com/knowledgebase/articles/86180-how-do-i-add-the-scr
 
 # Things to know before starting a reasonably large-scale React.js project?
 http://www.reddit.com/r/javascript/comments/2la0l7/things_to_know_before_starting_a_reasonably/
-
-
