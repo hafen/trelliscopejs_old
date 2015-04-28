@@ -1,5 +1,13 @@
 /* global require, module */
 
+
+// before anything happens, raise the ulimit to 2048
+// this allows for many files to be compiled
+// 'ulimit -n' is typically equal to 256, which is not enough
+var posix = require('posix')
+posix.setrlimit('nofile', {soft: 2048})
+
+
 // Broccoli Example file
 // https://github.com/broccolijs/broccoli-sample-app/blob/master/Brocfile.js
 

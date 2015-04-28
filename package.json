@@ -33,6 +33,7 @@
     "flux": "^2.0.1",
     "jest-cli": "~0.1.17",
     "object-assign": "^1.0.0",
+    "posix": "^2.0.0",
     "react": "^0.13.1",
     "react-ace": "schloerke/react-ace#dev",
     "react-router": "^0.13.2",
