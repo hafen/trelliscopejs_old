@@ -27,9 +27,12 @@ of patent rights can be found in the PATENTS file in the same directory.
       # </Route>
 
     NullHandler    = require './pages/etc/null_handler.litcoffee'
-    PanelLayout    = require './pages/related_displays/panel_layout.litcoffee'
-    PanelFunction  = require './pages/related_displays/panel_function.litcoffee'
-    PanelLabels    = require './pages/related_displays/panel_labels.litcoffee'
+
+    PanelLayout     = require './pages/related_displays/panel_layout.litcoffee'
+    PanelFunction   = require './pages/related_displays/panel_function.litcoffee'
+    PanelLabels     = require './pages/related_displays/panel_labels.litcoffee'
+    RelatedDisplays = require './pages/related_displays/related_displays.litcoffee'
+
     SingleDataPage = require './pages/single_page/single_page.litcoffee'
 
 
@@ -39,6 +42,7 @@ of patent rights can be found in the PATENTS file in the same directory.
           <Route name="Panel_Layout_Route"   path="panel_layout" handler={PanelLayout}/>
           <Route name="Panel_Function_Route" path="panel_function" handler={PanelFunction}/>
           <Route name="Panel_Labels_Route" path="panel_labels" handler={PanelLabels}/>
+          <Route name="Related_Displays_Route" path="related_displays" handler={RelatedDisplays}/>
           <Route name="Panel_Table" path="panel_table" handler={TodoApp}/>
         </Route>
         <DefaultRoute handler={SingleDataPage}/>
