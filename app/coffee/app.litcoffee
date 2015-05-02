@@ -26,10 +26,11 @@ of patent rights can be found in the PATENTS file in the same directory.
       #   <Redirect from="company" to="about" />
       # </Route>
 
-    NullHandler     = require './pages/etc/null_handler.litcoffee'
-    PanelLayout     = require './pages/related_displays/panel_layout.litcoffee'
-    PanelFunction   = require './pages/related_displays/panel_function.litcoffee'
-    SingleDataPage  = require './pages/single_page/single_page.litcoffee'
+    NullHandler    = require './pages/etc/null_handler.litcoffee'
+    PanelLayout    = require './pages/related_displays/panel_layout.litcoffee'
+    PanelFunction  = require './pages/related_displays/panel_function.litcoffee'
+    PanelLabels    = require './pages/related_displays/panel_labels.litcoffee'
+    SingleDataPage = require './pages/single_page/single_page.litcoffee'
 
 
     routes = (
@@ -37,6 +38,7 @@ of patent rights can be found in the PATENTS file in the same directory.
         <Route name="View_Options" path="/view_options" handler={NullHandler}>
           <Route name="Panel_Layout_Route"   path="panel_layout" handler={PanelLayout}/>
           <Route name="Panel_Function_Route" path="panel_function" handler={PanelFunction}/>
+          <Route name="Panel_Labels_Route" path="panel_labels" handler={PanelLabels}/>
           <Route name="Panel_Table" path="panel_table" handler={TodoApp}/>
         </Route>
         <DefaultRoute handler={SingleDataPage}/>
@@ -55,8 +57,3 @@ of patent rights can be found in the PATENTS file in the same directory.
     run routes, (Handler) ->
       React.render(<Handler/>, document.getElementById('todoapp'))
       return
-
-
-
-
-
