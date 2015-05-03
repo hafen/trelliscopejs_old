@@ -26,27 +26,35 @@ of patent rights can be found in the PATENTS file in the same directory.
       #   <Redirect from="company" to="about" />
       # </Route>
 
-    NullHandler    = require './pages/etc/null_handler.litcoffee'
+    NullHandler = require './pages/etc/null_handler.litcoffee'
 
     PanelLayout     = require './pages/related_displays/panel_layout.litcoffee'
     PanelFunction   = require './pages/related_displays/panel_function.litcoffee'
     PanelLabels     = require './pages/related_displays/panel_labels.litcoffee'
     RelatedDisplays = require './pages/related_displays/related_displays.litcoffee'
 
+    ActiveCognostics = require './pages/related_displays/active_cognostics.litcoffee'
+
+
     SingleDataPage = require './pages/single_page/single_page.litcoffee'
 
 
     routes = (
       <Route name="app" path="/" handler={TrelliscopeApp}>
-        <Route name="View_Options" path="/view_options" handler={NullHandler}>
+        <Route name="View_Options" path="view_options" handler={NullHandler}>
           <Route name="Panel_Layout_Route"   path="panel_layout" handler={PanelLayout}/>
           <Route name="Panel_Function_Route" path="panel_function" handler={PanelFunction}/>
           <Route name="Panel_Labels_Route" path="panel_labels" handler={PanelLabels}/>
           <Route name="Related_Displays_Route" path="related_displays" handler={RelatedDisplays}/>
           <Route name="Panel_Table" path="panel_table" handler={TodoApp}/>
         </Route>
+        <Route name="Cognostics" path="cognostics" handler={NullHandler}>
+          <Route name="Active Cognostics" path="active_cognostics" handler={ActiveCognostics} />
+        </Route>
+
         <DefaultRoute handler={SingleDataPage}/>
         <Redirect from="/view_options" to="/view_options/panel_function" />
+        <Redirect from="/cognostics" to="/cognostics/active_cognostics" />
       </Route>
     )
 
