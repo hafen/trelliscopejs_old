@@ -68,20 +68,18 @@
             # </tr>
 
             ret.push(
-              <tr className="panel-labels-group" key={"label_table_#{ret.length}"} ><td> { labelInfoObj.title } </td><td></td></tr>
+              <tr className="panel-labels-group" key={"label_table_#{ret.length}"} ><td> { labelInfoObj.groupName.join(' ') } </td><td></td></tr>
             )
-            for labelInfoItem in labelInfoObj.items
+            for labelInfoItem in labelInfoObj.data
               do (labelInfoItem) ->
-                classNameVal = if labelInfoItem.isActive
-                  "select-column selectable panel-labels-select active"
-                else
-                  "select-column selectable panel-labels-select "
+                classNameVal = "select-column selectable panel-labels-select " + labelInfoItem.active
+                labelInfoItem.isActive = (labelInfoItem.active is "active")
 
-                handle_fn = self.handle_show_click({key: labelInfoItem.mainTitle, currentStatus: labelInfoItem.isActive})
+                handle_fn = self.handle_show_click({key: labelInfoItem.name, currentStatus: labelInfoItem.isActive})
 
                 ret.push(
                   <tr key={"label_table_#{ret.length}"} onClick={handle_fn} className="pointer">
-                    <td><strong>{ labelInfoItem.mainTitle }</strong>: {labelInfoItem.subTitle}</td>
+                    <td><strong>{ labelInfoItem.name }</strong>: {labelInfoItem.desc}</td>
                     <td className={ classNameVal }>
                       <i className="icon-check "></i>
                     </td>
@@ -122,48 +120,89 @@
 
 
       render: ->
+        renderData = @testLabelInfoArr()
+
         <RelatedDisplay
           key={"Panel_Labels_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content({labelInfoArr: @testLabelInfoArr()}) }
+          bodyContent={ @render_body_content({labelInfoArr: renderData.cog}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
 
       testLabelInfoArr: ->
 
-        return [
-          {
-            title: "panelKey",
-            items: [{mainTitle: "panelKey", subTitle: "panel key", isActive: no}]
-          }
-          {
-            title: "condVar",
-            items: [
-              {mainTitle: "county", subTitle: "conditioning variable", isActive: yes}
-              {mainTitle: "state", subTitle: "conditioning variable", isActive: yes}
-            ]
-          }
-          {
-            title: "common",
-            items: [
-              {mainTitle: "slope", subTitle: "list price slope", isActive: no}
-              {mainTitle: "meanList", subTitle: "mean", isActive: yes}
-              {mainTitle: "meanSold", subTitle: "mean", isActive: no}
-              {mainTitle: "nObs", subTitle: "number of non-NA list prices", isActive: no}
-              {mainTitle: "zillowHref", subTitle: "zillow link", isActive: no}
-            ]
-          }
-          {
-            title: "studying",
-            items: [
-              {mainTitle: "tracy", subTitle: "finals", isActive: yes}
-              {mainTitle: "tracySummer", subTitle: "quals", isActive: no}
-            ]
-          }
-        ]
+        return {
+          "cog":[
+            {
+              "groupName":["panelKey"],
+              "data":[
+                {
+                  "name":"panelKey",
+                  "desc":"panel key",
+                  "active":"",
+                  "selectable":""
+                }
+              ]
+            },
+            {
+              "groupName":["condVar"],
+              "data":[
+                {
+                  "name":"county",
+                  "desc":"conditioning variable",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"state",
+                  "desc":"conditioning variable",
+                  "active":"active",
+                  "selectable":"selectable"
+                }
+              ]
+            },
+            {
+              "groupName":["common"],
+              "data": [
+                {
+                  "name":"slope",
+                  "desc":"list price slope",
+                  "active":"",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"meanList",
+                  "desc":"mean",
+                  "active":"",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"meanSold",
+                  "desc":"mean",
+                  "active":"",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"nObs",
+                  "desc":"number of non-NA list prices",
+                  "active":"",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"zillowHref",
+                  "desc":"zillow link",
+                  "active":"",
+                  "selectable":"selectable"
+                }
+              ]
+            }
+          ],
+          "cdName":["list_vs_time_ggplot"],
+          "cdGroup":["fields"]
+        }
 
 
     module.exports = PanelLayout

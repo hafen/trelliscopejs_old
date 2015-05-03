@@ -68,20 +68,18 @@
             # </tr>
 
             ret.push(
-              <tr className="panel-labels-group" key={"label_table_#{ret.length}"} ><td> { cogInfoObj.title } </td><td></td></tr>
+              <tr className="panel-labels-group" key={"label_table_#{ret.length}"} ><td> { cogInfoObj.groupName.join(' ') } </td><td></td></tr>
             )
-            for cogInfoItem in cogInfoObj.items
+            for cogInfoItem in cogInfoObj.data
               do (cogInfoItem) ->
-                classNameVal = if cogInfoItem.isActive
-                  "select-column selectable panel-labels-select active"
-                else
-                  "select-column selectable panel-labels-select "
+                classNameVal = "select-column selectable panel-labels-select " + cogInfoItem.active
+                cogInfoItem.isActive = (cogInfoItem.active is "active")
 
-                handle_fn = self.handle_show_click({key: cogInfoItem.mainTitle, currentStatus: cogInfoItem.isActive})
+                handle_fn = self.handle_show_click({key: cogInfoItem.name, currentStatus: cogInfoItem.isActive})
 
                 ret.push(
                   <tr key={"label_table_#{ret.length}"} onClick={handle_fn} className="pointer">
-                    <td><strong>{ cogInfoItem.mainTitle }</strong>: {cogInfoItem.subTitle}</td>
+                    <td><strong>{ cogInfoItem.name }</strong>: {cogInfoItem.desc}</td>
                     <td className={ classNameVal }>
                       <i className="icon-check "></i>
                     </td>
@@ -122,48 +120,89 @@
 
 
       render: ->
+        renderData = @testCogInfoArr()
+
         <RelatedDisplay
           key={"Panel_Labels_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content({cogInfoArr: @testCogInfoArr()}) }
+          bodyContent={ @render_body_content({cogInfoArr: renderData.cog}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
 
       testCogInfoArr: ->
 
-        return [
-          {
-            title: "panelKey",
-            items: [{mainTitle: "panelKey", subTitle: "panel key", isActive: no}]
-          }
-          {
-            title: "condVar",
-            items: [
-              {mainTitle: "county", subTitle: "conditioning variable", isActive: yes}
-              {mainTitle: "state", subTitle: "conditioning variable", isActive: yes}
-            ]
-          }
-          {
-            title: "common",
-            items: [
-              {mainTitle: "slope", subTitle: "list price slope", isActive: no}
-              {mainTitle: "meanList", subTitle: "mean", isActive: yes}
-              {mainTitle: "meanSold", subTitle: "mean", isActive: no}
-              {mainTitle: "nObs", subTitle: "number of non-NA list prices", isActive: no}
-              {mainTitle: "zillowHref", subTitle: "zillow link", isActive: no}
-            ]
-          }
-          {
-            title: "studying",
-            items: [
-              {mainTitle: "tracy", subTitle: "finals", isActive: yes}
-              {mainTitle: "tracySummer", subTitle: "quals", isActive: no}
-            ]
-          }
-        ]
+        return {
+          "cog":[
+            {
+              "groupName":["panelKey"],
+              "data":[
+                {
+                  "name":"panelKey",
+                  "desc":"panel key",
+                  "active":"active",
+                  "selectable":""
+                }
+              ]
+            },
+            {
+              "groupName":["condVar"],
+              "data":[
+                {
+                  "name":"county",
+                  "desc":"conditioning variable",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"state",
+                  "desc":"conditioning variable",
+                  "active":"active",
+                  "selectable":"selectable"
+                }
+              ]
+            },
+            {
+              "groupName":["common"],
+              "data": [
+                {
+                  "name":"slope",
+                  "desc":"list price slope",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"meanList",
+                  "desc":"mean",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"meanSold",
+                  "desc":"mean",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"nObs",
+                  "desc":"number of non-NA list prices",
+                  "active":"active",
+                  "selectable":"selectable"
+                },
+                {
+                  "name":"zillowHref",
+                  "desc":"zillow link",
+                  "active":"",
+                  "selectable":"selectable"
+                }
+              ]
+            }
+          ],
+          "cdName":["list_vs_time_ggplot"],
+          "cdGroup":["fields"]
+        }
 
 
     module.exports = PanelLayout
