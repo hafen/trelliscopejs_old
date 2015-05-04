@@ -5,6 +5,7 @@
 /tmp
 /public_test
 /browserify_bundle.js
+/build_coffee
 /build_dev
 /build_prod
 
