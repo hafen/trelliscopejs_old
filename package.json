@@ -50,14 +50,22 @@
     ]
   },
   "scripts": {
-    "start": "node_modules/.bin/broccoli serve",
-    "build_dev": "mkdir -p ./build_dev; rm -r ./build_dev/; node_modules/.bin/broccoli build build_dev",
-    "build_prod": "mkdir -p ./build_prod; rm -r build_prod/; BROCCOLI_ENV=production node_modules/.bin/broccoli build build_prod",
-    "bfy": "node_modules/.bin/browserify . > browserify_bundle.js",
-    "clean": "mkdir -p ./tmp; mkdir -p ./build_dev; mkdir -p ./build_prod; rm -r ./tmp ./build_dev ./build_prod;",
-    "clean_node_modules": "mkdir -p ./node_modules; rm -r ./node_modules; npm run-script clean;",
-    "postinstall": "npm run-script build_dev; npm run-script build_prod",
-    "test": "jest"
+    "start": "if [ -d \"node_modules\" ] ; then echo 'installed'; else npm install . ; fi; broccoli serve",
+    "build_browserify": "browserify . > browserify_bundle.js",
+    "build_coffee": "mkdir -p ./tmp; rm -r ./tmp; mkdir -p ./build_coffee; rm -r ./build_coffee/; ONLY_COFFEE=coffee broccoli build build_coffee",
+    "build_dev": "mkdir -p ./build_dev; rm -r ./build_dev/; broccoli build build_dev",
+    "build_prod": "mkdir -p ./build_prod; rm -r build_prod/; BROCCOLI_ENV=production broccoli build build_prod",
+    "clean_node_modules": "mkdir -p ./node_modules; rm -r ./node_modules; npm cache clean",
+    "clean_browserify": "rm browserify_bundle.js",
+    "clean_coffee"    : "mkdir -p ./build_coffee; rm -r ./build_coffee",
+    "clean_dev"       : "mkdir -p ./build_dev; rm -r ./build_dev",
+    "clean_prod"      : "mkdir -p ./build_prod; rm -r ./build_prod",
+    "clean_tmp"       : "mkdir -p ./tmp; rm -r ./tmp",
+    "clean": "for i in coffee dev prod tmp; do npm run \"clean_$i\"; done;",
+    "clean_all": "npm run clean_node_modules; npm run clean;",
+    "port_clobber": "lsof -i tcp:4200 || echo 'ports are not being clobbered'",
+    "postinstall": "for i in build_coffee build_dev build_prod clean; do npm run \"$i\"; done;",
+    "test": "echo \"Not implemented!\"; #jest"
   },
   "jest": {
     "rootDir": "./js"
