@@ -44,6 +44,22 @@ var replaceVal = require('broccoli-replace'); // replaces things in files that s
 var log = require('broccoli-stew').log;
 
 
+
+if (process.env.ONLY_COFFEE && process.env.ONLY_COFFEE == "coffee") {
+  var coffeeFiles = pickFiles('app', {srcDir: 'coffee', destDir: '/assets' });
+  var broccoliCjsx = require('broccoli-cjsx'); // js
+
+  log(coffeeFiles, {output: "tree", label: "pre compiled coffee files"})
+  coffeeFiles = broccoliCjsx(coffeeFiles, {extensions: ['litcoffee']})
+  log(coffeeFiles, {output: "tree", label: "compiled coffee files"})
+
+  module.exports = coffeeFiles;
+  return
+}
+
+
+
+
 // Styles
 // var compileLess    = require('broccoli-less-single');      // less file compiler
 // var compiledAppLess = compileLess(['.'], 'app/styles/app.less', 'assets/app.css', {
