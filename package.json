@@ -65,7 +65,8 @@
     "clean_all": "npm run clean_node_modules; npm run clean;",
     "port_clobber": "lsof -i tcp:4200 || echo 'ports are not being clobbered'",
     "postinstall": "for i in build_coffee build_dev build_prod clean; do npm run \"$i\"; done;",
-    "test": "echo \"Not implemented!\"; #jest"
+    "test": "echo \"Not implemented!\"; #jest",
+    "ryan": "npm run clean_node_modules; npm run start"
   },
   "jest": {
     "rootDir": "./js"
