@@ -34,6 +34,7 @@ of patent rights can be found in the PATENTS file in the same directory.
     RelatedDisplays = require './pages/related_displays/related_displays.litcoffee'
 
     ActiveCognostics = require './pages/related_displays/active_cognostics.litcoffee'
+    TableSortFilter  = require './pages/related_displays/table_sort_filter.litcoffee'
 
 
     SingleDataPage = require './pages/single_page/single_page.litcoffee'
@@ -50,6 +51,7 @@ of patent rights can be found in the PATENTS file in the same directory.
         </Route>
         <Route name="Cognostics" path="cognostics" handler={NullHandler}>
           <Route name="Active Cognostics" path="active_cognostics" handler={ActiveCognostics} />
+          <Route name="Table Sort Filter" path="table_sort_filter" handler={TableSortFilter} />
         </Route>
 
         <DefaultRoute handler={SingleDataPage}/>
