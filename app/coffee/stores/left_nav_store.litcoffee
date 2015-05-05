@@ -133,7 +133,7 @@
       #  * Get the entire collection of view options
       #  * @return {array}
       #  */
-      getAllViewOptions: ->
+      get_all_view_options: ->
         return _data.viewOptionsInfoArr
 
 
@@ -141,7 +141,7 @@
       #  * Get the entire collection of cognostics view options
       #  * @return {array}
       #  */
-      getAllCognostics: ->
+      get_all_cognostics: ->
         return _data.cognosticsInfoArr
 
     }

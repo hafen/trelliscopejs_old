@@ -14,8 +14,8 @@ Contains navigations for the application
     LeftNavComponent = React.createClass
       displayName: "LeftNavigation"
 
-      getViewOptionsInfoArr: _.once(-> return LeftNavStore.getAllViewOptions())
-      getCognosticsInfoArr: _.once(-> return LeftNavStore.getAllCognostics())
+      getViewOptionsInfoArr: _.once(-> return LeftNavStore.get_all_view_options())
+      getCognosticsInfoArr: _.once(-> return LeftNavStore.get_all_cognostics())
 
       getEndDivs: ->
         endDivs = []
