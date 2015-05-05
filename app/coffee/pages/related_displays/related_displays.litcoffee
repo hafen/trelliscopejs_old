@@ -9,6 +9,7 @@
 
     RelatedDisplay = require "./related_display.litcoffee"
     LeftNavStore = require "../../stores/left_nav_store.litcoffee"
+    PanelDataStore = require "../../stores/panel_data_store.litcoffee"
 
     PanelLayout = React.createClass
       displayName: "Related_Display"
@@ -51,12 +52,14 @@
 
 
       render: ->
+        renderData = PanelDataStore.get_single_item_by_id("related_displays")
+
         <RelatedDisplay
           key={"Panel_Layout_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ "Not implemented!" }
+          bodyContent="Not implemented!"
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />

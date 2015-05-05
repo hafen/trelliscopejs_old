@@ -8,7 +8,8 @@
     _     = require 'underscore'
 
     RelatedDisplay = require "./related_display.litcoffee"
-    LeftNavStore = require "../../stores/left_nav_store.litcoffee"
+    LeftNavStore   = require "../../stores/left_nav_store.litcoffee"
+    PanelDataStore = require "../../stores/panel_data_store.litcoffee"
 
     PanelLayout = React.createClass
       displayName: "Active_Cognostics"
@@ -120,7 +121,8 @@
 
 
       render: ->
-        renderData = @testCogInfoArr()
+        renderData = PanelDataStore.get_single_item_by_id("active_cognostics")
+
 
         <RelatedDisplay
           key={"Panel_Labels_Related_Display"}
@@ -131,78 +133,6 @@
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
-
-      testCogInfoArr: ->
-
-        return {
-          "cog":[
-            {
-              "groupName":["panelKey"],
-              "data":[
-                {
-                  "name":"panelKey",
-                  "desc":"panel key",
-                  "active":"active",
-                  "selectable":""
-                }
-              ]
-            },
-            {
-              "groupName":["condVar"],
-              "data":[
-                {
-                  "name":"county",
-                  "desc":"conditioning variable",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"state",
-                  "desc":"conditioning variable",
-                  "active":"active",
-                  "selectable":"selectable"
-                }
-              ]
-            },
-            {
-              "groupName":["common"],
-              "data": [
-                {
-                  "name":"slope",
-                  "desc":"list price slope",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"meanList",
-                  "desc":"mean",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"meanSold",
-                  "desc":"mean",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"nObs",
-                  "desc":"number of non-NA list prices",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"zillowHref",
-                  "desc":"zillow link",
-                  "active":"",
-                  "selectable":"selectable"
-                }
-              ]
-            }
-          ],
-          "cdName":["list_vs_time_ggplot"],
-          "cdGroup":["fields"]
-        }
 
 
     module.exports = PanelLayout

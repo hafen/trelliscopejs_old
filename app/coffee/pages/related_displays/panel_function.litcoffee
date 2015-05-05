@@ -18,7 +18,8 @@ This is currently disabled. :-\
     require("brace/theme/tomorrow")
 
     RelatedDisplay = require "./related_display.litcoffee"
-    LeftNavStore = require "../../stores/left_nav_store.litcoffee"
+    LeftNavStore   = require "../../stores/left_nav_store.litcoffee"
+    PanelDataStore = require "../../stores/panel_data_store.litcoffee"
 
 
 
@@ -55,30 +56,7 @@ This is currently disabled. :-\
         console.log("code changed... but i'm not listining!")
         return
 
-      get_function_value: ->
-        return "library(memoise)" + "\n" +
-          "" + "\n" +
-          "fib <- function(n) {" + "\n" +
-          "  if (n < 2) {" + "\n" +
-          "    return(1)" + "\n" +
-          "  }" + "\n" +
-          "  return(fib(n-1) * fib(n - 2))" + "\n" +
-          "}" + "\n" +
-          "" + "\n" +
-          "system.time({fib(30)})" + "\n" +
-          "" + "\n" +
-          "" + "\n" +
-          "fib_m <- memoise(function(n) {" + "\n" +
-          "  if (n < 2) {" + "\n" +
-          "    return(1)" + "\n" +
-          "  }" + "\n" +
-          "  return(fib_m(n-1) * fib_m(n - 2))" + "\n" +
-          "})" + "\n" +
-          "system.time({fib_m(30)})" + "\n"
-
-
-
-      render_body_content:  ->
+      render_body_content:  ({renderData}) ->
         <AceEditor
           key="ace_editor"
           mode="r"
@@ -86,23 +64,24 @@ This is currently disabled. :-\
           onChange={@handle_editor_change}
           onLoad={@handle_editor_onload}
           name="panel_function_editor"
-          value={@get_function_value()}
+          value={renderData.code?[0] or ""}
         />
 
 
 
       render: ->
+        renderData = PanelDataStore.get_single_item_by_id("panel_function")
+        console.log(renderData)
+
         <RelatedDisplay
           key={"Panel_Function_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content() }
+          bodyContent={ @render_body_content({renderData}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
-
-
 
 
     module.exports = PanelFunction

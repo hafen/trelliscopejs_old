@@ -50,5 +50,3 @@ Contains navigations for the application
 
 
     module.exports = LeftNavComponent
-
-

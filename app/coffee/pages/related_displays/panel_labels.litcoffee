@@ -8,7 +8,8 @@
     _     = require 'underscore'
 
     RelatedDisplay = require "./related_display.litcoffee"
-    LeftNavStore = require "../../stores/left_nav_store.litcoffee"
+    LeftNavStore   = require "../../stores/left_nav_store.litcoffee"
+    PanelDataStore = require "../../stores/panel_data_store.litcoffee"
 
     PanelLayout = React.createClass
       displayName: "Panel_Labels"
@@ -95,7 +96,9 @@
 
 
 
-      render_body_content: ({labelInfoArr})->
+      render_body_content: ({renderData})->
+
+        labelInfoArr = renderData.cog
 
         <div className="panel-body-wrapper">
           <div className="table-header-div">
@@ -120,89 +123,17 @@
 
 
       render: ->
-        renderData = @testLabelInfoArr()
+        renderData = PanelDataStore.get_single_item_by_id("panel_labels")
 
         <RelatedDisplay
           key={"Panel_Labels_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content({labelInfoArr: renderData.cog}) }
+          bodyContent={ @render_body_content({renderData}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
-
-      testLabelInfoArr: ->
-
-        return {
-          "cog":[
-            {
-              "groupName":["panelKey"],
-              "data":[
-                {
-                  "name":"panelKey",
-                  "desc":"panel key",
-                  "active":"",
-                  "selectable":""
-                }
-              ]
-            },
-            {
-              "groupName":["condVar"],
-              "data":[
-                {
-                  "name":"county",
-                  "desc":"conditioning variable",
-                  "active":"active",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"state",
-                  "desc":"conditioning variable",
-                  "active":"active",
-                  "selectable":"selectable"
-                }
-              ]
-            },
-            {
-              "groupName":["common"],
-              "data": [
-                {
-                  "name":"slope",
-                  "desc":"list price slope",
-                  "active":"",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"meanList",
-                  "desc":"mean",
-                  "active":"",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"meanSold",
-                  "desc":"mean",
-                  "active":"",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"nObs",
-                  "desc":"number of non-NA list prices",
-                  "active":"",
-                  "selectable":"selectable"
-                },
-                {
-                  "name":"zillowHref",
-                  "desc":"zillow link",
-                  "active":"",
-                  "selectable":"selectable"
-                }
-              ]
-            }
-          ],
-          "cdName":["list_vs_time_ggplot"],
-          "cdGroup":["fields"]
-        }
 
 
     module.exports = PanelLayout

@@ -8,7 +8,8 @@
     _     = require 'underscore'
 
     RelatedDisplay = require "./related_display.litcoffee"
-    LeftNavStore = require "../../stores/left_nav_store.litcoffee"
+    LeftNavStore   = require "../../stores/left_nav_store.litcoffee"
+    PanelDataStore = require "../../stores/panel_data_store.litcoffee"
 
     PanelLayout = React.createClass
       displayName: "Panel_Layout"
@@ -85,7 +86,18 @@
         </table>
 
 
-      render_body_content: ({rowNum, colNum, isByRow})->
+      render_body_content: ({renderData})->
+        # "panel_aspect":[1],
+        # "n_panel_labels":[2],
+        # "nrow":[1],
+        # "ncol":[1],
+        # "cdName":["list_vs_time_ggplot"],
+        # "cdGroup":["fields"]
+
+        isByRow = yes
+        rowNum = renderData.nrow?[1] ? 1
+        colNum = renderData.ncol?[1] ? 1
+
         rowPanelArrClass = if isByRow then "btn btn-info pl-toggle active" else "btn btn-default pl-toggle"
         colPanelArrClass = if isByRow then "btn btn-default pl-toggle" else "btn btn-info pl-toggle active"
 
@@ -150,15 +162,20 @@
 
 
       render: ->
+        renderData = PanelDataStore.get_single_item_by_id("panel_layout")
+        console.log("TODO!", renderData)
+
         <RelatedDisplay
           key={"Panel_Layout_Related_Display"}
           icon={ @render_icon() }
           title={ @render_title() }
           description={ @render_description() }
-          bodyContent={ @render_body_content({rowNum: 1, colNum: 1, isByRow: yes}) }
+          bodyContent={ @render_body_content({renderData}) }
           onCancel={ @handle_cancel }
           onApply={ @handle_apply }
         />
 
+
+      
 
     module.exports = PanelLayout
