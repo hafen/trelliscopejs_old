@@ -554,6 +554,53 @@
           ["07548a2b21a185c6549830409769b69b", "Santa Clara County", "CA", " 0.02597571", "  372.2678", "  370.3444", "66", "<a href=\"http://www.zillow.com/homes/Santa-Clara-County-CA_rb/\" target=\"_blank\">link</a>"]
         ]
       }
+
+      univariateFilter:  {
+        "cogs": [
+          {
+            "name": "slope",
+            "desc": "list price slope",
+            "type": "numeric",
+            "group": "common",
+            "defLabel": false,
+            "defActive": true,
+            "filterable": true
+          },
+          {
+            "name": "meanList",
+            "desc": "mean",
+            "type": "numeric",
+            "group": "common",
+            "defLabel": false,
+            "defActive": true,
+            "filterable": true
+          },
+          {
+            "name": "meanSold",
+            "desc": "mean",
+            "type": "numeric",
+            "group": "common",
+            "defLabel": false,
+            "defActive": true,
+            "filterable": true
+          },
+          {
+            "name": "nObs",
+            "desc": "number of non-NA list prices",
+            "type": "numeric",
+            "group": "common",
+            "defLabel": false,
+            "defActive": true,
+            "filterable": true
+          }
+        ],
+        "cdName": [
+          "list_vs_time_ggplot"
+        ],
+        "cdGroup": [
+          "fields"
+        ]
+      }
     }
 
 
