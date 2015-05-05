@@ -16,6 +16,21 @@
 
     _data = {
 
+      panel_preview: {
+        "h"   :138.44843049327352,
+        "w"   :110,
+        "rows":[[1]]
+      }
+
+      panel_layout: {
+        "panel_aspect"  :[1],
+        "n_panel_labels":[2],
+        "nrow"          :[1],
+        "ncol"          :[1],
+        "cdName"        :["list_vs_time_ggplot"],
+        "cdGroup"       :["fields"]
+      }
+
       active_cognostics: {
         "cog":[
           {
