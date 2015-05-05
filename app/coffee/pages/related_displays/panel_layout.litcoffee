@@ -163,7 +163,6 @@
 
       render: ->
         renderData = PanelDataStore.get_single_item_by_id("panel_layout")
-        console.log("TODO!", renderData)
 
         <RelatedDisplay
           key={"Panel_Layout_Related_Display"}
@@ -176,6 +175,6 @@
         />
 
 
-      
+
 
     module.exports = PanelLayout
