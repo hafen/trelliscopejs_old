@@ -50,7 +50,7 @@
     ]
   },
   "scripts": {
-    "start": "if [ -d \"node_modules\" ] ; then echo 'node_modules installed. starting server'; else npm install . ; fi; broccoli serve",
+    "start": "if [ \"`node --version`\" != \"v0.10.38\" ] ; then echo \"Change your node version to v0.10.38.  ( n v0.10.38 )\"; else echo \"correct version of node.js installed\"; if [ ! -d \"node_modules\" ] ; then npm install . ; fi; echo 'node_modules installed'; echo 'starting server'; broccoli serve; fi",
     "build_browserify": "browserify . > browserify_bundle.js",
     "build_coffee": "mkdir -p ./tmp; rm -r ./tmp; mkdir -p ./build_coffee; rm -r ./build_coffee/; ONLY_COFFEE=coffee broccoli build build_coffee",
     "build_dev": "mkdir -p ./build_dev; rm -r ./build_dev/; broccoli build build_dev",
